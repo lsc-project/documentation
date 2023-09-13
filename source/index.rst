@@ -11,11 +11,45 @@ This page lists all available documentation around LSC. If you don't find what y
 If you find any errors or you think something's missing here, please :doc:`let us know <community-resources>`! We do our best to keep docs up to date, but hey, mistakes are human and things change quickly :)
 
 
+..
+   TODO: remove download page (https://lsc-project.org/doku.php/download) from doc. It will appear only on lsc-website: https://github.com/lsc-project/lsc-website/
+
 .. toctree::
    :maxdepth: 1
-   :caption: Contents:
+   :caption: Installation
+
+   requirements
+   installation
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Configuration
+
+   configuration
+
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Usage
+
+   run
+
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Working
+
+   basics
+
+..
+   TODO: contact pages are to be moved to lsc-website: https://github.com/lsc-project/lsc-website/
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Contacts
 
    community-resources
+   professionalservices
 
 Indices and tables
 ==================
