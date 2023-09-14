@@ -59,6 +59,18 @@ If you find any errors or you think something's missing here, please :doc:`let u
    convertrecursivegroupstoflatgroups
    usecustomjavapackage
 
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Development
+
+   development
+   packaging
+   javadoc
+   plugin
+   embedding
+
+
 ..
    TODO: contact pages are to be moved to lsc-website: https://github.com/lsc-project/lsc-website/
 
