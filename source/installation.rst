@@ -7,7 +7,7 @@ Tarball
 
 You can get the LSC distribution from the `download area <download>`__. Get zip or tar.gz archive, and unarchive it:
 
-.. code-block:: bash
+.. code-block:: console
 
     tar zxvf lsc-core-VERSION-dist.tar.gz
 
@@ -33,13 +33,13 @@ The public key can be downloaded here: `http://ltb-project.org/wiki/lib/RPM-GPG-
 
 To import this key:
 
-.. code-block:: bash
+.. code-block:: console
 
     rpm --import http://ltb-project.org/wiki/lib/RPM-GPG-KEY-LTB-project
 
 Just run this command to install them (with dependency management):
 
-.. code-block:: bash
+.. code-block:: console
 
     yum localinstall lsc*
 
@@ -56,7 +56,7 @@ Yum repository
 
 Configure the yum repository :
 
-.. code-block:: bash
+.. code-block:: console
 
     vi /etc/yum.repos.d/lsc-project.repo
 
@@ -71,7 +71,7 @@ Configure the yum repository :
 
 Then update:
 
-.. code-block:: bash
+.. code-block:: console
 
     yum update
 
@@ -79,13 +79,13 @@ The public key can be downloaded here: `http://ltb-project.org/wiki/lib/RPM-GPG-
 
 To import this key:
 
-.. code-block:: bash
+.. code-block:: console
 
     rpm --import http://ltb-project.org/wiki/lib/RPM-GPG-KEY-LTB-project
 
 You are now ready to install:
 
-.. code-block:: bash
+.. code-block:: console
 
     yum install lsc
 
@@ -103,7 +103,7 @@ You can download the package `here <download>`__.
 
 Just run this command to install:
 
-.. code-block:: bash
+.. code-block:: console
 
     dpkg -i lsc*
 
@@ -113,7 +113,7 @@ APT repository
 
 Configure the apt repository :
 
-.. code-block:: bash
+.. code-block:: console
 
     vi /etc/apt/sources.list.d/lsc-project.list
 
@@ -124,7 +124,7 @@ Configure the apt repository :
 
 Then update:
 
-.. code-block:: bash
+.. code-block:: console
 
     apt-get update
 
@@ -132,13 +132,13 @@ The public key can be downloaded here: `http://ltb-project.org/wiki/lib/RPM-GPG-
 
 To import this key:
 
-.. code-block:: bash
+.. code-block:: console
 
     wget -O - http://ltb-project.org/wiki/lib/RPM-GPG-KEY-LTB-project | sudo apt-key add -
 
 You are now ready to install:
 
-.. code-block:: bash
+.. code-block:: console
 
     apt-get install lsc
 

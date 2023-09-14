@@ -4,7 +4,7 @@ Run LSC
 
 .. note::
 
-    See `basics <basics>`__ to get more details on how LSC works
+    See :doc:`basics <basics>` to get more details on how LSC works
 
 Starting LSC
 ============
@@ -16,11 +16,11 @@ You can launch all tasks by using the keyword ``all``, but they will not be laun
 Synchronous launch
 ==================
 
-.. code-block:: bash
+.. code-block:: console
 
     lsc -s all
 
-.. code-block:: bash
+.. code-block:: console
 
     lsc -s task1,task2
 
@@ -28,11 +28,11 @@ Synchronous launch
 Clean launch
 ============
 
-.. code-block:: bash
+.. code-block:: console
 
     lsc -c all
 
-.. code-block:: bash
+.. code-block:: console
 
     lsc -c task1,task2
 
@@ -43,11 +43,11 @@ Clean launch
 Asynchronous launch
 ===================
 
-.. code-block:: bash
+.. code-block:: console
 
     lsc -a all
 
-.. code-block:: bash
+.. code-block:: console
 
     lsc -a task1,task2
 
@@ -58,19 +58,19 @@ Using start/stop service script
 
 A service script is provided in LSC, installed by default with RPM. This script allows to launch LSC in asynchronous mode:
 
-.. code-block:: bash
+.. code-block:: console
 
     /etc/init.d/lsc start
 
 You can test configuration:
 
-.. code-block:: bash
+.. code-block:: console
 
     /etc/init.d/lsc configtest
 
 And get the process status:
 
-.. code-block:: bash
+.. code-block:: console
 
     /etc/init.d/lsc status
 
@@ -102,7 +102,7 @@ This service script can be configured in ``/etc/default/lsc``:
 
 This allows you to run several connectors. You just have to duplicate the service to run it:
 
-.. code-block:: bash
+.. code-block:: console
 
     ln -s /etc/init.d/lsc /etc/init.d/lsc2
     cp /etc/default/lsc /etc/default/lsc2
@@ -118,7 +118,7 @@ LSC daemon required options for JMX remote invocation
 
 You will have to launch the LSC instance with at least one asynchronous task and the JMX port specified:
 
-.. code-block:: bash
+.. code-block:: console
 
     export LSC_JMXPORT=1099
     lsc -a <comma separated list of tasks|"all" keyword>

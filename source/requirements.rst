@@ -21,13 +21,13 @@ Java
 
 Check that the ``JAVA_HOME`` environment variable is set up. If not, set it up with a command like this (adapt the path to your system):
 
-.. code-block:: bash
+.. code-block:: console
 
     export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 
 This may not be required if Java is directly installed on your system, and you can run java from anywhere:
 
-.. code-block:: bash
+.. code-block:: console
 
     java -version
 

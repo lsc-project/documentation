@@ -20,12 +20,13 @@ If you find any errors or you think something's missing here, please :doc:`let u
 
    requirements
    installation
+   upgrade
 
 .. toctree::
    :maxdepth: 1
    :caption: Configuration
 
-   configuration
+   scripting
 
 
 .. toctree::
@@ -33,13 +34,30 @@ If you find any errors or you think something's missing here, please :doc:`let u
    :caption: Usage
 
    run
+   monitoring
 
 
 .. toctree::
    :maxdepth: 1
-   :caption: Working
+   :caption: Working principles
 
    basics
+
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Howtos and tutorials
+
+   activedirectory
+   ssltls
+   hsqldb
+   kerberos
+   openldaptoactivedirectory
+   csvtoldap
+   synchronizegroups
+   synchronizeposixgroupstogroupofnames
+   convertrecursivegroupstoflatgroups
+   usecustomjavapackage
 
 ..
    TODO: contact pages are to be moved to lsc-website: https://github.com/lsc-project/lsc-website/
