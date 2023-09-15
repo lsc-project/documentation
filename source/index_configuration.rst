@@ -7,9 +7,9 @@ Configuration
 
    * :doc:`Connections <connections>`
 
-      * :doc:`LDAP directory <connections_ldap>`
-      * :doc:`database (JDBC) <connections_database>`
-      * :doc:`Google Apps <connections_googleapps>`
+      * :doc:`LDAP directory <connection_ldap>`
+      * :doc:`database (JDBC) <connection_database>`
+      * :doc:`Google Apps <connection_googleapps>`
 
    * :doc:`Tasks <tasks>`
 

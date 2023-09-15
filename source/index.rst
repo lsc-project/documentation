@@ -40,9 +40,9 @@ If you find any errors or you think something's missing here, please :doc:`let u
    notation
    overview
    connections
-   connections_ldap
-   connections_database
-   connections_googleapps
+   connection_ldap
+   connection_database
+   connection_googleapps
    tasks
    services
    service_source_database
