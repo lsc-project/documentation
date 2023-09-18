@@ -42,7 +42,7 @@ First, to be able to reference the connection in the service, it's mandatory to 
 * **version**: mandatory, either ``VERSION_2`` or ``VERSION_3``. Prefer ``VERSION_3`` as LDAPv2 is deprecated 
 * **pageSize**: mandatory, specify either ``-1`` or the page size to use. The page size is implemented either through the corresponding control or through `Virtual List View <https://datatracker.ietf.org/doc/html/draft-ietf-ldapext-ldapv3-vlv>`__ depending on the directory capabilities which are discovered at run time (VLV preferred)
 * **factory**: mandatory, only the Sun factory is supported now and you should use the corresponding value ``com.sun.jndi.ldap.LdapCtxFactory``
-* **tlsActivated**: mandatory, when using LDAP connection on non SSL port, you can force TLS to be activated through this option (either true or false)
+* **tlsActivated**: mandatory, enable or disable startTLS operation (either true or false). See :doc:`SSL/TLS <ssltls>` configuration for more information
 
 .. note::
 

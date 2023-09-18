@@ -29,6 +29,8 @@ If you find any errors or you think something's missing here, please :doc:`let u
    installation
    upgrade
 
+.. _index-configuration:
+
 .. include::   index_configuration.rst
 
 .. toctree::
@@ -76,6 +78,7 @@ If you find any errors or you think something's missing here, please :doc:`let u
    :maxdepth: 1
    :caption: Howtos and tutorials
 
+   quickstart
    activedirectory
    ssltls
    hsqldb
@@ -95,6 +98,16 @@ If you find any errors or you think something's missing here, please :doc:`let u
    nis
    obm
    executable
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Scripts to executable plugin
+
+   executable_ownscript
+   executable_shellwrapperldap
+   executable_perlwrappercsv
+   executable_perlwrapperldif
+
 
 Non official plugins:
 
