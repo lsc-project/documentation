@@ -113,11 +113,17 @@ Non official plugins:
 
    * `Multi JDBC source <https://github.com/MSSputnik/lsc-multi-jdbc-src-service>`__
 
+.. _index-development:
+
 .. toctree::
    :maxdepth: 1
    :caption: Development
 
    development
+   ideintegration
+   codestyle
+   contributing
+   release
    packaging
    javadoc
    plugin
