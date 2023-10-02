@@ -16,7 +16,7 @@ Download the latest version of LSC
     This tutorial assumes you are using LSC source tarball.
 
 - Make sure you have a JVM installed (see the :doc:`Requirements <requirements>`)
-- Download the latest LSC core archive from the `download area <download>`__
+- Download the latest LSC core archive from the `download area <https://lsc-project.org/download.html>`__
 - Decompress the archive and enter the directory:
 
 .. code-block:: console

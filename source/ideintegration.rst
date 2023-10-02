@@ -22,7 +22,7 @@ Getting the source code
 
 You have two options to obtain the LSC-sample source code:
 
-- Download a release or a daily snapshot from the `download area <download>`__. Untar the archive in your workspace directory for example.
+- Download a release or a daily snapshot from the `download area <https://lsc-project.org/download.html>`__. Untar the archive in your workspace directory for example.
 - Take the GIT version (if you want to check for new features,...):
 
     - We recommend using the integrated GIT plugin. Open the corresponding perspective in **Window** -> **Perspective** -> **Open Perspective** -> **Other**

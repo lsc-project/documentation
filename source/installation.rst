@@ -5,7 +5,7 @@ Installation
 Tarball
 =======
 
-You can get the LSC distribution from the `download area <download>`__. Get zip or tar.gz archive, and unarchive it:
+You can get the LSC distribution from the `download area <https://lsc-project.org/download.html>`__. Get zip or tar.gz archive, and unarchive it:
 
 .. code-block:: console
 
@@ -27,7 +27,7 @@ Using yum repository is encouraged.
 Manual download
 ---------------
 
-You can download the RPM here: `download area <download>`__.
+You can download the RPM here: `download area <https://lsc-project.org/download.html>`__.
 
 The public key can be downloaded here: `http://ltb-project.org/wiki/lib/RPM-GPG-KEY-LTB-project <http://ltb-project.org/wiki/lib/RPM-GPG-KEY-LTB-project>`__
 
@@ -99,7 +99,7 @@ Using apt repository is encouraged.
 Manual download
 ---------------
 
-You can download the package `here <download>`__.
+You can download the package `here <https://lsc-project.org/download.html>`__.
 
 Just run this command to install:
 

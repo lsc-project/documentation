@@ -129,9 +129,6 @@ Non official plugins:
    embedding
 
 
-..
-   TODO: contact pages are to be moved to lsc-website: https://github.com/lsc-project/lsc-website/
-
 Contacts
 -------------
 

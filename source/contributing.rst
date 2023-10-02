@@ -2,7 +2,7 @@
 Contributing
 ************
 
-You want to contribute? Start by checking out the repository. Details are on the `download <download>`__ page.
+You want to contribute? Start by checking out the repository. Details are on the `download <https://lsc-project.org/download.html>`__ page.
 
 Feel free to send
 =================
