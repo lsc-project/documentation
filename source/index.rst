@@ -6,9 +6,9 @@
 Welcome to LSC's documentation!
 ===============================
 
-This page lists all available documentation around LSC. If you don't find what you're looking for, check out the :doc:`Community Resources <community-resources>` page to find some help.
+This page lists all available documentation around LSC. If you don't find what you're looking for, check out the `Community Resources <https://lsc-project.org/contact.html>`__ page to find some help.
 
-If you find any errors or you think something's missing here, please :doc:`let us know <community-resources>`! We do our best to keep docs up to date, but hey, mistakes are human and things change quickly :)
+If you find any errors or you think something's missing here, please `let us know <https://lsc-project.org/contact.html>`__! We do our best to keep docs up to date, but hey, mistakes are human and things change quickly :)
 
 
 .. toctree::
@@ -132,12 +132,11 @@ Non official plugins:
 ..
    TODO: contact pages are to be moved to lsc-website: https://github.com/lsc-project/lsc-website/
 
-.. toctree::
-   :maxdepth: 1
-   :caption: Contacts
+Contacts
+-------------
 
-   community-resources
-   professionalservices
+* `Community resources <https://lsc-project.org/contact.html>`__
+* `Professional services <https://lsc-project.org/professionalservices.html>`__
 
 Indices and tables
 ==================

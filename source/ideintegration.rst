@@ -2,7 +2,7 @@
 Integrated Development Environment
 **********************************
 
-In order to develop your code in the project, you may want to integrate it directly in an IDE like `Eclipse <https://www.eclipse.org/>`__, `IDEA <https://www.jetbrains.com/idea/>`__ or `Netbeans <https://netbeans.apache.org/>`__. Please :doc:`contribute <community-resources>` your own method if it is not present here :)
+In order to develop your code in the project, you may want to integrate it directly in an IDE like `Eclipse <https://www.eclipse.org/>`__, `IDEA <https://www.jetbrains.com/idea/>`__ or `Netbeans <https://netbeans.apache.org/>`__. Please `contribute <https://lsc-project.org/contact.html>__` your own method if it is not present here :)
 
 Eclipse
 =======

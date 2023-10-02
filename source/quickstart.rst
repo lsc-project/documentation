@@ -250,7 +250,7 @@ Once you've had a play with this sample data, you probably want to move on to yo
 
 The main configuration file is in ``etc/lsc.xml``. It is the same format as the one from the sample, so you'll be able to use it quickly. A sample file is provided in ``etc/lsc.xml-sample``, just rename it to get started.
 
-Read through the :doc:`documentation <index>` on this web site. If you need help or have a question, :doc:`get in touch <community-resources>` by mailing lists or IRC.
+Read through the :doc:`documentation <index>` on this web site. If you need help or have a question, `get in touch <https://lsc-project.org/contact.html>`__ by mailing lists or IRC.
 
 Last but not least, we really hope you enjoy using LSC, and it solves problems for you. We'd love to hear back from you.
 
