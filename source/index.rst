@@ -125,7 +125,6 @@ Non official plugins:
    contributing
    release
    packaging
-   javadoc
    plugin
    embedding
 
