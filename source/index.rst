@@ -19,9 +19,6 @@ If you find any errors or you think something's missing here, please `let us kno
    basics
 
 
-..
-   TODO: remove download page (https://lsc-project.org/doku.php/download) from doc. It will appear only on lsc-website: https://github.com/lsc-project/lsc-website/
-
 .. toctree::
    :maxdepth: 1
    :caption: Installation
