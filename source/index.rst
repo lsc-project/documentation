@@ -15,6 +15,7 @@ If you find any errors or you think something's missing here, please `let us kno
    :maxdepth: 1
    :caption: Working principles
 
+   about
    basics
 
 
@@ -72,6 +73,7 @@ If you find any errors or you think something's missing here, please `let us kno
 
    quickstart
    run
+   plugins
    monitoring
 
 
@@ -91,28 +93,6 @@ If you find any errors or you think something's missing here, please `let us kno
    usecustomjavapackage
 
 
-.. toctree::
-   :maxdepth: 1
-   :caption: Plugins
-
-   nis
-   obm
-   executable
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Scripts to executable plugin
-
-   executable_ownscript
-   executable_shellwrapperldap
-   executable_perlwrappercsv
-   executable_perlwrapperldif
-
-
-Non official plugins:
-
-   * `Multi JDBC source <https://github.com/MSSputnik/lsc-multi-jdbc-src-service>`__
-
 .. _index-development:
 
 .. toctree::
@@ -125,7 +105,7 @@ Non official plugins:
    contributing
    release
    packaging
-   plugin
+   plugin-dev
    embedding
 
 

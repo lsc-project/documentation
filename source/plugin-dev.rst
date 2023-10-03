@@ -1,6 +1,6 @@
-***************
-Adding a plugin
-***************
+*******************
+Develop your plugin
+*******************
 
 A LSC plugin is defined as a third party component that can be:
 

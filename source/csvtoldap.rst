@@ -14,7 +14,7 @@ This HSQLDB instance will be first populated with data contained in the CSV file
 
 .. note::
 
-    Another way to synchronize from CSV to LDAP is to use :doc:`Executable plugin <executable>` and :doc:`Perl wrappers for CSV <executable_perlwrappercsv>`.
+    Another way to synchronize from CSV to LDAP is to use `Executable plugin <https://github.com/lsc-project/lsc-executable-plugin>`__ and `Perl wrappers for CSV <https://github.com/lsc-project/lsc-executable-plugin/blob/master/doc/perl-csv.md>`__.
 
 Step 1: Populate the HSQLDB database from CSV
 =============================================
