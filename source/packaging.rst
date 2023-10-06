@@ -43,18 +43,18 @@ To achieve this, connect on a Debian or a Ubuntu host, build a package through t
 
 .. code-block:: console
 
-    cd lsc ; mvn package
+    cd lsc ; mvn clean package
 
 Copy the debian build structure inside the dist directory:
 
 .. code-block:: console
 
-    cp -aR src/install/debian target/lsc-trunk-SNAPSHOT
-
+    cp -aR src/install/debian target/lsc-core-X.Y-SNAPSHOT-dist/lsc-X.Y-SNAPSHOT/
 
 Launch the build:
 
 .. code-block:: console
 
-    dpkg-buildpackage
+    cd target/lsc-core-X.Y-SNAPSHOT-dist/lsc-X.Y-SNAPSHOT
+    dpkg-buildpackage -us -uc
 
