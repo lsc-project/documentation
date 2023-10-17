@@ -54,4 +54,4 @@ html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
 
 html_favicon = '_static/images/lsc_logo_letters_small.png'
-html_logo = '_static/images/lsc_logo_letters_square.png'
+html_logo = '_static/images/lsc_logo_letters_white_shadow.png'
