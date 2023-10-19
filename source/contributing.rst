@@ -32,6 +32,21 @@ If you want to propose a fix or a new feature, please send a pull request on our
 
 Even core team members need to contribute trough pull request in order to get feedback before applying their changes. If a core team member does not get any feedback within 3 days, he may apply himself his pull request.
 
+Contribution strategy
+=====================
+
+There are multiple branches in the repository:
+
+* ``main``: current development branch
+* ``v2.X``: contains all the fixes for the current 2.X stable version
+
+If you want to propose a pull request, you must determine if your change:
+
+* is introducing a new feature or a fix that breaks the current behaviour of LSC
+* is a minor change, or is fixing a bug
+
+In the first case you should propose a merge into ``main``, in the 2nd case in ``v2.X``.
+
 Development documentation
 =========================
 
