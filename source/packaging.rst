@@ -19,8 +19,8 @@ Create the rpm build structure and copy the required files:
 
     cd 
     mkdir -p rpmbuild/{SOURCES,SPECS,RPMS,SRPMS,BUILD,BUILDROOT}
-    cp lsc/target/lsc-trunk-SNAPSHOT-dist.tar.gz rpmbuild/SOURCES
-    cp lsc/src/install/lsc-core.spec rpmbuild/SPECS
+    cp target/lsc-core-X.Y-SNAPSHOT-dist.tar.gz rpmbuild/SOURCES
+    cp src/install/lsc-core.spec rpmbuild/SPECS
 
 Launch the build:
 
