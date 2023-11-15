@@ -9,7 +9,6 @@ Configuration
 
       * :doc:`LDAP directory <connection_ldap>`
       * :doc:`database (JDBC) <connection_database>`
-      * :doc:`Google Apps <connection_googleapps>`
 
    * :doc:`Tasks <tasks>`
 
@@ -20,7 +19,6 @@ Configuration
          * :doc:`Event-based LDAP source service <service_source_asyncldap>`
          * :doc:`Database destination service <service_destination_database>`
          * :doc:`LDAP destination service <service_destination_ldap>`
-         * :doc:`Google Apps destination service <service_destination_googleapps>`
 
       * :doc:`Synchronization rules (syncoptions) <syncrules>`
 

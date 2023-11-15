@@ -42,7 +42,6 @@ If you find any errors or you think something's missing here, please `let us kno
    connections
    connection_ldap
    connection_database
-   connection_googleapps
    tasks
    services
    service_source_database
@@ -50,7 +49,6 @@ If you find any errors or you think something's missing here, please `let us kno
    service_source_asyncldap
    service_destination_database
    service_destination_ldap
-   service_destination_googleapps
    syncrules
    syncrulesforldap
    syncrulesforactivedirectory

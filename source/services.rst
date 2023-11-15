@@ -18,7 +18,6 @@ Existing destination services allow data to be updated from the following data s
 
 * :doc:`Database destination service <service_destination_database>`
 * :doc:`LDAP destination service <service_destination_ldap>`
-* :doc:`Google Apps destination service <service_destination_googleapps>`
 
 .. tip::
 

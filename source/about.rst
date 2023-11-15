@@ -25,7 +25,7 @@ Philosophy
 Feature overview
 ================
 
-* **Multiple source connectors**: any LDAPv3 server, any database with a JDBC connector, flat files, third parties like Google Apps and anything else you write a connector for
+* **Multiple source connectors**: any LDAPv3 server, any database with a JDBC connector, flat files, REST API and anything else you write a connector for
 * Support for LDAPv3 niceties and extensions: **StartTLS**, **LDAPS**, **paged results**, LDAP Sync / Persistent Search, schema retrieval
 * Graphical installation tool (use is optional)
 * Fully :doc:`configurable <overview>` through a **XML configuration file**

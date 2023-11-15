@@ -8,7 +8,6 @@ Connections type may be shared between different services types and also inside 
 
 * :doc:`LDAP directory <connection_ldap>`
 * :doc:`Database (JDBC) <connection_database>`
-* :doc:`Google Apps <connection_googleapps>`
 
 .. tip::
 

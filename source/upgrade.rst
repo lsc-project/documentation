@@ -12,3 +12,8 @@ Update all configuration files to use the 2.2 XML namespace:
 .. code-block:: XML
 
     <lsc xmlns="http://lsc-project.org/XSD/lsc-core-2.2.xsd" revision="0">
+
+Google Apps Destination service
+===============================
+
+This service is obsolete and has been removed in 2.2 version.
