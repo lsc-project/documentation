@@ -17,6 +17,9 @@ You can describe synchronization options through the corresponding task subnode 
             <mainIdentifier>...</mainIdentifier>
             <defaultDelimiter>...</defaultDelimiter>
             <defaultPolicy>...</defaultPolicy>
+            <conditions>...</conditions>
+            <hooks>...</hooks>
+            <dataset>...</dataset>
           </propertiesBasedSyncOptions>
           <.../>
         </task>
@@ -26,11 +29,11 @@ You can describe synchronization options through the corresponding task subnode 
 You may include various information there:
 
 * main identifier
-* conditions
 * default delimiter
 * default policy
+* conditions
+* hooks
 * attributes description
-* implementation bean
 
 Main identifier (lsc>tasks>task>propertiesBasedSyncOptions>mainIdentifier)
 --------------------------------------------------------------------------
@@ -66,22 +69,6 @@ If you have an "update only" task, and the DN cannot be inferred from the source
         dstBean.getMainIdentifier()
     </mainIdentifier>
 
-Attributes (lsc>tasks>task>propertiesBasedSyncOptions>dataset)
---------------------------------------------------------------
-
-This is the node describing how to handle each attribute:
-
-.. code-block:: XML
-
-    <dataset>
-      <name>objectClass</name>
-      <policy>KEEP</policy>
-      <createValues>
-        <string>"user"</string>
-        <string>"top"</string>
-      </createValues>
-    </dataset>
-
 Default delimiter (lsc>tasks>task>propertiesBasedSyncOptions>defaultDelimiter)
 ------------------------------------------------------------------------------
 
@@ -105,13 +92,6 @@ It may take the following values : ``FORCE``, ``KEEP`` or ``MERGE``
 
     <defaultPolicy>FORCE</defaultPolicy>
 
-
-Bean value (lsc>tasks>task>propertiesBasedSyncOptions>bean)
------------------------------------------------------------
-
-This value can be customized with a specific bean but includes a default value: ``org.lsc.beans.SimpleBean``.
-
-This parameter points to a class that is used by LSC as a simple object storing values in a neutral way: table of named datasets which contain values.
 
 Conditions (lsc>tasks>task>propertiesBasedSyncOptions>conditions)
 -----------------------------------------------------------------
@@ -149,6 +129,71 @@ The following conditions samples are written in JavaScript:
 * In the condition **update** you have access to the ``srcBean`` and ``dstBean``.
 * In the condition **delete** you have access to the ``dstBean``.
 * In the condition **change main identifier** you have access to the ``srcBean`` and ``dstBean``.
+
+
+Hooks (lsc>tasks>task>propertiesBasedSyncOptions>hooks)
+-------------------------------------------------------
+
+In this node, you can call a hook for each specific operations:
+
+.. code-block:: XML
+
+    <hooks>
+      <outputFormat>ldif</outputFormat>
+      <createPostHook>bin/hook-ldif.sh</createPostHook>
+      <updatePostHook>bin/hook-ldif.sh</updatePostHook>
+      <deletePostHook>bin/hook-ldif.sh</deletePostHook>
+      <changeIdPostHook>bin/hook-ldif.sh</changeIdPostHook>
+    </hooks>
+
+* ``outputFormat``: format of the entry passed to the script. Possible values are ``ldif`` or ``json``. Default is ``ldif``.
+* ``createPostHook``: path to the hook script managing each entry creation. The script will be called with 2 arguments: the DN of the entry, and the operation (``create``). The entry is passed on stdin, in the appropriate ``outputformat``
+* ``updatePostHook``: path to the hook script managing each entry update. The script will be called with 2 arguments: the DN of the entry, and the operation (``update``). The entry is passed on stdin, in the appropriate ``outputformat``
+* ``deletePostHook``: path to the hook script managing each entry removal. The script will be called with 2 arguments: the DN of the entry, and the operation (``delete``). Nothing is passed on stdin.
+* ``changeIdPostHook``: path to the hook script managing each entry renaming. The script will be called with 2 arguments: the DN of the entry, and the operation. The entry is passed on stdin, in the appropriate ``outputformat``
+
+Here is an example of modification in ldif, passed to stdin:
+
+.. code-block::
+
+    # Mon Dec 11 16:39:54 CET 2023
+    dn: cn=CN0001-hook,ou=ldap2ldap2TestTaskDst,ou=Test Data,dc=lsc-project,dc=org
+    changetype: modify
+    replace: description
+    description: CN0001-hook
+    -
+
+Here is an example of modification in json, passed to stdin:
+
+.. code-block::
+
+    [ {
+      "attributeName" : "description",
+      "values" : [ "CN0001-hook" ],
+      "operation" : "REPLACE_VALUES"
+    }, {
+      "attributeName" : "userCertificate;binary",
+      "values" : [ "MIIDkTCCAnmgAwIBAgIUDhx/9qofTrT+yNFFvihdDn7rjOQwDQYJKoZIhvcNAQELBQAwWDELMAkGA1UEBhMCRlIxDTALBgNVBAgMBHRlc3QxDTALBgNVBAcMBHRlc3QxDTALBgNVBAoMBHRlc3QxDTALBgNVBAsMBHRlc3QxDTALBgNVBAMMBHRlc3QwHhcNMjMxMDI3MTQzMDQxWhcNMzMxMDI0MTQzMDQxWjBYMQswCQYDVQQGEwJGUjENMAsGA1UECAwEdGVzdDENMAsGA1UEBwwEdGVzdDENMAsGA1UECgwEdGVzdDENMAsGA1UECwwEdGVzdDENMAsGA1UEAwwEdGVzdDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKdWt0QgFnEi7a1hIJQv4ZdOM5y0GGLHQYNrUNSReArvpkYUY5zasFNVzVHCApRuj0t1NMDrn1gNzKkxTIbYGaWRSn+21J0ow+Nxh2TAQW8dkJnWTksCfyGGGItI5q3ST3EUKnepaAzUYYENcSHRyx7UY/3XuzcW0aGhy4PrVTIHBpyLq0Uzv8nH5nbWM+LYt6YbQMmlAz/psTXIC2dfEZhUb4plLGSo7rZxM5geC6Z+os+I8+uw+mGjps1VP7eGq0jCGHNs2rUHMqBNgLvwMH2WlMXo/iNarAb8fUEPdp59FwiTygBlWAn6GoKHJ1HWPpqMxdtjL2Y5+ZMcp70eJqcCAwEAAaNTMFEwHQYDVR0OBBYEFLwffjUBL/Rp4a6MgeCJiFnCZFu8MB8GA1UdIwQYMBaAFLwffjUBL/Rp4a6MgeCJiFnCZFu8MA8GA1UdEwEB/wQFMAMBAf8wDQYJKoZIhvcNAQELBQADggEBACjwsg1Z9PyauoKAhkIfyPTEnlEOCo1nN37c2vnH4fyY6fuBdV6GWtk/u9FCuDmYT/4KDRxe33ZUChwSUX0INgamOarWRES3UoPC1GeOvuMf7uustEMLcHAYZVKXSZUrsOjw+VIZ5XrD6GDE64QtvW5Ve3jf43aGgLf27NF0vhF9+gHOZjjBT33S977HUutMUKfRu9PdHAn8Yb1FmSbAvqqK+SAjn6cJC8l5yS5t0BSNQGbKSA8bPzvWI9HXYVvb+ym6GDrsr+Zad3NrqUSZGzS2JFEDVD9aAikldXu6g02fA5A7nufVePmaG7iTyylO/ZU2lTiJ0SHc2DnO0pg2i+0=" ],
+      "operation" : "REPLACE_VALUES"
+    } ]
+
+
+Attributes (lsc>tasks>task>propertiesBasedSyncOptions>dataset)
+--------------------------------------------------------------
+
+This is the node describing how to handle each attribute:
+
+.. code-block:: XML
+
+    <dataset>
+      <name>objectClass</name>
+      <policy>KEEP</policy>
+      <createValues>
+        <string>"user"</string>
+        <string>"top"</string>
+      </createValues>
+    </dataset>
+
 
 Functionality matrix
 ====================
