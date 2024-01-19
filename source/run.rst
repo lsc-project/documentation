@@ -76,7 +76,7 @@ You can get the process status:
 
     systemctl status lsc-sync
 
-asynchronous and synchronous tasks launched like above can be customized in ``/etc/default/lsc``:
+asynchronous tasks can be customized in ``/etc/default/lsc-async``:
 
 .. code-block::
 
@@ -91,11 +91,33 @@ asynchronous and synchronous tasks launched like above can be customized in ``/e
     # JAVA
     #JAVA_HOME=/usr/java/jdk/jre
     
-    #LSC_CONFIG_DIR="/etc/lsc"
-    #LSC_SYNC_TASKS="-s all"
-    #LSC_ASYNC_TASKS="-a all"
-    #LSC_CLEAN_TASKS="-c all"
-    #LSC_EXTRA_ARGS=""
+    LSC_CONFIG_DIR="/etc/lsc"
+    #LSC_SYNC_TASKS=""
+    LSC_ASYNC_TASKS="-a all"
+    #LSC_CLEAN_TASKS=""
+    LSC_EXTRA_ARGS=""
+
+synchronous tasks can be customized in ``/etc/default/lsc-sync``:
+
+.. code-block::
+
+    #====================================================================
+    # Configuration for LSC init script
+    # (http://www.lsc-project.org).
+    #====================================================================
+    
+    # JMX
+    LSC_JMXPORT="1099"
+    
+    # JAVA
+    #JAVA_HOME=/usr/java/jdk/jre
+    
+    LSC_CONFIG_DIR="/etc/lsc"
+    LSC_SYNC_TASKS="-s all"
+    #LSC_ASYNC_TASKS=""
+    LSC_CLEAN_TASKS="-c all"
+    LSC_EXTRA_ARGS=""
+
 
 Just uncomment the section you want to customize.
 
