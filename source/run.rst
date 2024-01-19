@@ -53,29 +53,30 @@ Asynchronous launch
 
 When multiple asynchronous tasks are started, they are started as separate thread inside the same daemon.
 
-Using start/stop service script
-===============================
+Using systemd service
+=====================
 
-A service script is provided in LSC, installed by default with RPM. This script allows to launch LSC in asynchronous mode:
+Some systemd services are provided by LSC, installed by default with rpm/deb packages.
 
-.. code-block:: console
-
-    /etc/init.d/lsc start
-
-You can test configuration:
+This script allows to launch LSC in asynchronous mode:
 
 .. code-block:: console
 
-    /etc/init.d/lsc configtest
+    systemctl start lsc-async
 
-And get the process status:
+or in synchronous mode:
 
 .. code-block:: console
 
-    /etc/init.d/lsc status
+    systemctl start lsc-sync
 
-This service script can be configured in ``/etc/default/lsc``:
+You can get the process status:
 
+.. code-block:: console
+
+    systemctl status lsc-sync
+
+asynchronous and synchronous tasks launched like above can be customized in ``/etc/default/lsc``:
 
 .. code-block::
 
@@ -83,30 +84,44 @@ This service script can be configured in ``/etc/default/lsc``:
     # Configuration for LSC init script
     # (http://www.lsc-project.org).
     #====================================================================
-
-    # LSC installation
-    LSC_BIN="/usr/local/lsc/bin/lsc"
-    LSC_CFG_DIR="/usr/local/lsc/etc"
-    LSC_USER=""
-    LSC_GROUP=""
-    LSC_PID_FILE="/var/run/lsc.pid"
-    LSC_TASKS="all"
- 
+    
     # JMX
     LSC_JMXPORT="1099"
- 
+    
     # JAVA
     #JAVA_HOME=/usr/java/jdk/jre
+    
+    #LSC_CONFIG_DIR="/etc/lsc"
+    #LSC_SYNC_TASKS="-s all"
+    #LSC_ASYNC_TASKS="-a all"
+    #LSC_CLEAN_TASKS="-c all"
+    #LSC_EXTRA_ARGS=""
 
+Just uncomment the section you want to customize.
 
+You can also easily run several connectors with systemd instances.
 
-This allows you to run several connectors. You just have to duplicate the service to run it:
+Customize the corresponding configuration file:
 
 .. code-block:: console
 
-    ln -s /etc/init.d/lsc /etc/init.d/lsc2
-    cp /etc/default/lsc /etc/default/lsc2
+    # For a synchronous task
+    cp /etc/default/lsc-sync /etc/default/lsc-examplesynctask
+    
+    # For an asynchronous task
+    cp /etc/default/lsc-async /etc/default/lsc-exampleasynctask
 
+Edit ``/etc/default/lsc-examplesynctask`` or ``/etc/default/lsc-exampleasynctask``
+
+Run the corresponding systemd instance:
+
+.. code-block:: console
+
+    # synchronous systemd instance will load file /etc/default/lsc-<my-task>
+    systemctl start lsc-sync@examplesynctask
+    
+    # asynchronous systemd instance will load file /etc/default/lsc-<my-task>
+    systemctl start lsc-async@exampleasynctask
 
 Interaction with an already started instance
 ============================================
