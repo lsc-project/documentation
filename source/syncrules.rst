@@ -152,6 +152,8 @@ In this node, you can call a hook for each specific operations:
 * ``deletePostHook``: path to the hook script managing each entry removal. The script will be called with 2 arguments: the DN of the entry, and the operation (``delete``). Nothing is passed on stdin.
 * ``changeIdPostHook``: path to the hook script managing each entry renaming. The script will be called with 2 arguments: the DN of the entry, and the operation. The entry is passed on stdin, in the appropriate ``outputformat``
 
+Hook scripts are not supposed to write anything to stdout or stderr. If so, LSC will display theses messages as log warnings.
+
 Here is an example of modification in ldif, passed to stdin:
 
 .. code-block::
