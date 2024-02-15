@@ -87,7 +87,7 @@ LSC enables creating and changing passwords for users. Here are some methods to 
 getUnicodePwd
 -------------
 
-The `getUnicodePwd <https://lsc-project.org/javadoc/latest/org/lsc/utils/directory/AD.html#getUnicodePwd-java.lang.String->`__ method encodes a string to fit the syntax of the unicodePwd attribute in AD, used to set the password.
+The `getUnicodePwd <https://lsc-project.org/javadoc/latest/org/lsc/utils/directory/AD.html#getUnicodePwd-java.lang.String->`__ method encodes a string to fit the syntax of the unicodePwd attribute in AD, used to set the password. It requires that unicodePwd is declared as binary attribute in the LDAP connection settings.
 
 So you can create a default password (e.g. "changeit") for created users by setting:
 

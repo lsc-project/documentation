@@ -62,6 +62,12 @@ To manage Active Directory Paged Results Control (which enables to return more t
 
               <pageSize>1000</pageSize>
 
+Attribute unicodePwd is a binary attribute:
+
+.. code-block:: XML
+
+              <binaryAttributes><string>unicodePwd</string></binaryAttributes>
+
 And close the XML node :
 
 .. code-block:: XML
