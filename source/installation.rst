@@ -119,8 +119,8 @@ Configure the apt repository :
 
 .. code-block::
 
-    deb     http://lsc-project.org/debian lsc main
-    deb-src http://lsc-project.org/debian lsc main
+    deb [signed-by=/usr/share/keyrings/lsc-project.asc]     https://lsc-project.org/debian lsc main
+    deb-src [signed-by=/usr/share/keyrings/lsc-project.asc] https://lsc-project.org/debian lsc main
 
 Then update:
 
@@ -134,7 +134,7 @@ To import this key:
 
 .. code-block:: console
 
-    wget -O - http://ltb-project.org/wiki/lib/RPM-GPG-KEY-LTB-project | sudo apt-key add -
+    wget https://ltb-project.org/documentation/_static/RPM-GPG-KEY-LTB-project -O /usr/share/keyrings/lsc-project.asc
 
 You are now ready to install:
 
