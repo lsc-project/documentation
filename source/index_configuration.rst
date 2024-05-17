@@ -27,7 +27,6 @@ Configuration
          * :doc:`Security-related extended synchronization rules <syncrulessecurity>`
          * :doc:`Sequences handling in synchronization rules <sequences>`
 
-   * :doc:`Audits <audits>`
    * :doc:`Security > Encryption options <encryption>`
 
 * Other configuration

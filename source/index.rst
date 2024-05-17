@@ -54,7 +54,6 @@ If you find any errors or you think something's missing here, please `let us kno
    syncrulesforactivedirectory
    syncrulessecurity
    sequences
-   audits
    encryption
    database
    persistence

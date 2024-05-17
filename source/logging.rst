@@ -28,10 +28,6 @@ Output the synchronization to CSV files
 
 In LSC you have a specific layout to log every action in a CSV file.
 
-.. tip::
-
-    This can be replaced by :doc:`CSV audit <audits>`.
-
 This uses the logback logs, so you have to declare this in the ``/etc/lsc/logback.xml`` file.
 
 Here is a small example : 
@@ -74,10 +70,6 @@ Output the synchronization to LDIF files
 ----------------------------------------
 
 In LSC you have a specific layout to log every action in a LDIF file.
-
-.. tip::
-
-    This can be replaced by :doc:`LDIF audit <audits>`.
 
 This uses the logback logs, so you have to declare this in the ``/etc/lsc/logback.xml`` file.
 
