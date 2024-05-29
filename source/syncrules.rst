@@ -202,39 +202,50 @@ Functionality matrix
 
 Depending on the **policy** configured for an attribute, the different ``*Values`` specified and the values in the source for this attribute name, LSC's behavior varies:
 
-+------------------------+---------------------------------------------+---------------------------------------------+---------------------------------------------+
-|                        | policy=KEEP                                 | Policy=FORCE                                | Policy=MERGE                                |
-+========================+=============================================+=============================================+=============================================+
-| **<createValues/>**    | If:                                                                                       | If:                                         |
-|                        |                                                                                           |                                             |
-|                        |   * no ``<forceValues/>`` are specified,                                                  |   * no ``<forceValues/>`` are specified,    |
-|                        |   * no values are read from the source,                                                   |   * and a new entry is being added,         |
-|                        |   * and a new entry is being added,                                                       |                                             |
-|                        |                                                                                           | the attribute will be created with          |
-|                        | the attribute will be created with                                                        |                                             |
-|                        |                                                                                           | values from ``<createValues/>``             |
-|                        | values from ``<createValues/>``                                                           |                                             |
-|                        |                                                                                           | and values from the source                  |
-+------------------------+---------------------------------------------+---------------------------------------------+---------------------------------------------+
-| **<defaultValues/>**   | If:                                                                                       | If:                                         |
-|                        |                                                                                           |                                             |
-|                        |   * no ``<forceValues/>`` are specified,                                                  | * no ``<forceValues/>`` are specified,      |
-|                        |   * no values are read from the source,                                                   |                                             |
-|                        |   * and the attribute doesn't yet exist in the destination,                               | values from ``<defaultValues/>`` are added, |
-|                        |                                                                                           |                                             |
-|                        | it is created in an existing entry                                                        | as well as any source values,               |
-|                        |                                                                                           |                                             |
-|                        | with values from ``<defaultValues/>``                                                     | to existing destination values              |
-|                        |                                                                                           |                                             |
-|                        |                                                                                           |                                             |
-|                        |                                                                                           |                                             |
-+------------------------+---------------------------------------------+---------------------------------------------+---------------------------------------------+
-| **<forceValues/>**     | No changes are applied                      | All existing values are replaced            | Values from ``<forceValues/>`` are added    |
-|                        |                                             |                                             |                                             |
-|                        |                                             | with values from ``<forceValues/>``,        | to existing values in the destination,      |
-|                        |                                             |                                             |                                             |
-|                        |                                             | regardless of values from source            | regardless of values from source            |
-+------------------------+---------------------------------------------+---------------------------------------------+---------------------------------------------+
++------------------------+---------------------------------------------+----------------------------------------------+---------------------------------------------+
+|                        | policy=KEEP                                 | Policy=FORCE                                 | Policy=MERGE                                |
++========================+=============================================+==============================================+=============================================+
+| **<createValues/>**    | If:                                                                                        | If:                                         |
+|                        |                                                                                            |                                             |
+|                        |   * no ``<forceValues/>`` are specified,                                                   |   * no ``<forceValues/>`` are specified,    |
+|                        |   * no values are read from the source,                                                    |   * and a new entry is being added,         |
+|                        |   * and a new entry is being added,                                                        |                                             |
+|                        |                                                                                            | the attribute will be created with          |
+|                        | the attribute will be created with                                                         |                                             |
+|                        |                                                                                            | values from ``<createValues/>``             |
+|                        | values from ``<createValues/>``                                                            |                                             |
+|                        |                                                                                            | and values from the source                  |
++------------------------+---------------------------------------------+----------------------------------------------+---------------------------------------------+
+| **<defaultValues/>**   | If:                                                                                        | If:                                         |
+|                        |                                                                                            |                                             |
+|                        |   * no ``<forceValues/>`` are specified,                                                   | * no ``<forceValues/>`` are specified,      |
+|                        |   * no values are read from the source,                                                    |                                             |
+|                        |   * and the attribute doesn't yet exist in the destination,                                | values from ``<defaultValues/>`` are added, |
+|                        |                                                                                            |                                             |
+|                        | it is created in an existing entry                                                         | as well as any source values,               |
+|                        |                                                                                            |                                             |
+|                        | with values from ``<defaultValues/>``                                                      | to existing destination values              |
+|                        |                                                                                            |                                             |
+|                        |                                                                                            |                                             |
+|                        |                                                                                            |                                             |
++------------------------+---------------------------------------------+----------------------------------------------+---------------------------------------------+
+| **<forceValues/>**     | No changes are applied                      | If:                                          | Values from ``<forceValues/>`` are added    |
+|                        |                                             |                                              |                                             |
+|                        |                                             | ``(number of missing values +``              | to existing values in the destination,      |
+|                        |                                             |                                              |                                             |
+|                        |                                             | ``number of extra values) <``                | regardless of values from source            |
+|                        |                                             |                                              |                                             |
+|                        |                                             | ``nb of expected values after modification`` |                                             |
+|                        |                                             |                                              |                                             |
+|                        |                                             | then LSC applies 2 operations:               |                                             |
+|                        |                                             |                                              |                                             |
+|                        |                                             |   * 1 add of missing values                  |                                             |
+|                        |                                             |   * 1 delete of extra values                 |                                             |
+|                        |                                             |                                              |                                             |
+|                        |                                             | else, it performs a full replace             |                                             |
+|                        |                                             |                                              |                                             |
+|                        |                                             | with all values from ``<forceValues/>``      |                                             |
++------------------------+---------------------------------------------+----------------------------------------------+---------------------------------------------+
 
 
 
