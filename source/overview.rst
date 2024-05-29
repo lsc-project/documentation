@@ -51,6 +51,5 @@ Settings are divided into the following sections:
 
 * :doc:`lsc>connections <connections>`: all the settings required to identify the way connections must be established (URL, login, ...) 
 * :doc:`lsc>tasks <tasks>`: various properties describing the way a source service may be synchronized with a destination service. In order to achieve this, source and destination services are wrapped to the available connections, and synchronization options are specified (transform and set values)
-* :doc:`lsc>audits <audits>`: specify the audits settings
 * :doc:`lsc>security>encryption <encryption>`: specify the security options. Currently, there are only encryption options
 

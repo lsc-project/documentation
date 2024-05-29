@@ -18,6 +18,22 @@ Google Apps Destination service
 
 This service is obsolete and has been removed in 2.2 version.
 
+Audits
+======
+
+Audit configuration has been removed in 2.2.
+
+If you have some configuration sections containing:
+
+.. code-block:: XML
+
+    <audits>
+      <audit>
+        ...
+      </audit>
+    </audits>
+
+You must remove them and use :doc:`logback configuration <logging>` instead.
 
 Behavior change for multi-valued attribute replacement
 ======================================================
