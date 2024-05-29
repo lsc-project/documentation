@@ -34,3 +34,21 @@ If you have some configuration sections containing:
     </audits>
 
 You must remove them and use :doc:`logback configuration <logging>` instead.
+
+Behavior change for multi-valued attribute replacement
+======================================================
+
+Before version 2.2, during an entry update, LSC behavior was to systematically replace all values for attributes in FORCE policy.
+
+This could lead to slow modifications, especially for entries with many values,
+like groups holding many members. However, sometimes it's cheaper
+to only add the missing values plus remove the extra values.
+
+LSC 2.2 take this problematic into consideration.
+
+If (number of missing values + number of extra values) < number of expected values after modification, then LSC applies 2 operations:
+
+* 1 add of missing values
+* 1 delete of extra values
+
+else, it performs a full replace with all values.
