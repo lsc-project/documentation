@@ -65,7 +65,7 @@ A unique identifier
 
 Matching source and destination entries requires a common piece of information. In LSC we call this the **pivot**.
 
-The pivot can be one or several attributes, that form a unique combinaison (similar to a primary key in a database). Commonly used pivots are UIDs and email adresses.
+The pivot can be one or several attributes, that form a unique combinaison (similar to a primary key in a database). Commonly used pivots are UIDs and email addresses.
 
 Identity synchronization operations
 -----------------------------------

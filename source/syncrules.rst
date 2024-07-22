@@ -61,7 +61,7 @@ If this is meaning less for the referential you plan to write to, just copy the 
         srcBean.getMainIdentifier()
     </mainIdentifier>
 
-If you have an "update only" task, and the DN cannot be inferred from the source referrential, you can also use the dstBean:
+If you have an "update only" task, and the DN cannot be inferred from the source referential, you can also use the dstBean:
 
 .. code-block:: XML
 

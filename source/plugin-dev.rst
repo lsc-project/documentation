@@ -23,7 +23,7 @@ A service plugin includes :
 Sample service plugin
 =====================
 
-Consider looking at the *FooBarLscService* sample as decribed below. This fake service has been designed as an extension of a SimpleJdbcDestinationService to describe an embeddable LSC:
+Consider looking at the *FooBarLscService* sample as described below. This fake service has been designed as an extension of a SimpleJdbcDestinationService to describe an embeddable LSC:
 
 * Ordered List ItemFirst define the configuration extension format
 * Generate the corresponding source:

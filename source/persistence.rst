@@ -2,7 +2,7 @@
 XML persistence map
 *******************
 
-To use LSC synchronisation with databases you have to define how LSC will retrieve data from the :doc:`source database <service_source_database>` or how it will write them to :doc:`destination database <service_destination_database>`. This will be done by specifying IBatis persistence map in XML.
+To use LSC synchronization with databases you have to define how LSC will retrieve data from the :doc:`source database <service_source_database>` or how it will write them to :doc:`destination database <service_destination_database>`. This will be done by specifying IBatis persistence map in XML.
 
 Introduction
 ============
@@ -89,7 +89,7 @@ And for the clean phase it should be:
 
 .. tip::
 
-    The ``#uid#`` is the SQL field returned by the first SQL query. So, if the first SQL query selects two field (``SELECT name, email``), then you can use these two field to retrieve a user (``#name#`` and ``#email#``).
+    The ``#uid#`` is the SQL field returned by the first SQL query. So, if the first SQL query selects two fields (``SELECT name, email``), then you can use these two fields to retrieve a user (``#name#`` and ``#email#``).
 
 .. important::
 
@@ -108,7 +108,7 @@ You can write 3 types of queries:
 
 .. tip::
 
-    For each type, you can provide more thant one SQL query, each one will be exectuted by LSC.
+    For each type, you can provide more than one SQL query, each one will be exectuted by LSC.
 
 Insert query
 ^^^^^^^^^^^^

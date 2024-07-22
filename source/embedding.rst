@@ -16,7 +16,7 @@ Most applications include a user repository for most of the time identification,
 These applications are used in complex information systems where existing user directories and databases are managed for operating systems and other applications.
 Writing a business application is not easy, but most of the time, software developers are not aware of the security constraints and users management workflow that is used by organizations and companies that will use their software
 
-Authorization is most of the time embedded and manageed by the application because if the application is not trivial, it's complex or simply impossible to extract the authorization from the application data model.
+Authorization is most of the time embedded and managed by the application because if the application is not trivial, it's complex or simply impossible to extract the authorization from the application data model.
 
 But to simplify authentication, Single Sign On software and API are available and can be incorporated by business software to avoid dealing with every and all authentication factors available and used by their users. 
 
