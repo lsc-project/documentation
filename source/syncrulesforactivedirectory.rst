@@ -3,7 +3,7 @@ Extended synchronization rules for Active Directory
 ***************************************************
 
 
-The LSC has some built-in fonctions to interact with some specific attributes of an Active Directory.
+The LSC has some built-in functions to interact with some specific attributes of an Active Directory.
 
 UserAccountControl (account type and status)
 ============================================

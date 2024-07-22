@@ -9,7 +9,7 @@ Run modes
 There's several run mode that you can use :
   * **synchronous mode** : this is the simplest way to start LSC. Once the source service has been listed, objects are retrieved from the source and from the destination. New objects are created, existing are updated and at the end the LSC will stop (no more daemon or program running)
   * **clean mode** : this mode is complementary to the first one for cleaning the destination service by retrieving objects and checking their existence inside the source service. If they exist nothing is done but if they don't they are deleted from the destination service.
-  * **asynchronous mode** : in this mode, LSC is started as a daemon. If the source service has something to synchronize, LSC will retrieve updated objects one by one and will synchronize it wich the destination service. If no update is provided, LSC will sleep for 5 seconds and try again. It will never stop until an explicit request is done.
+  * **asynchronous mode** : in this mode, LSC is started as a daemon. If the source service has something to synchronize, LSC will retrieve updated objects one by one and will synchronize it which the destination service. If no update is provided, LSC will sleep for 5 seconds and try again. It will never stop until an explicit request is done.
 
 
 Phases

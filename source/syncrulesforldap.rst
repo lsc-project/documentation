@@ -2,7 +2,7 @@
 Extended synchronization rules for LDAP
 ***************************************
 
-LSC has some built-in fonctions to interact with generic LDAP servers.
+LSC has some built-in functions to interact with generic LDAP servers.
 
 Performing a BIND operation to test a password
 ==============================================
