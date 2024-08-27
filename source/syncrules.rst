@@ -15,6 +15,7 @@ You can describe synchronization options through the corresponding task subnode 
           <.../>
           <propertiesBasedSyncOptions>
             <mainIdentifier>...</mainIdentifier>
+            <pivotTransformation>...</pivotTransformation>
             <defaultDelimiter>...</defaultDelimiter>
             <defaultPolicy>...</defaultPolicy>
             <conditions>...</conditions>
@@ -29,6 +30,7 @@ You can describe synchronization options through the corresponding task subnode 
 You may include various information there:
 
 * main identifier
+* pivot transformation
 * default delimiter
 * default policy
 * conditions
@@ -68,6 +70,27 @@ If you have an "update only" task, and the DN cannot be inferred from the source
     <mainIdentifier>
         dstBean.getMainIdentifier()
     </mainIdentifier>
+
+Pivot transformation (lsc>tasks>task>propertiesBasedSyncOptions>pivotTransformation)
+------------------------------------------------------------------------------------
+
+This section is optional, and needed only if the value of source pivot attribute need to be adapted to match the value of destination pivot attribute.
+
+For example, to remove a part of the string between source and destination:
+
+.. code-block:: XML
+
+        <pivotTransformation>
+            <transformation fromAttribute="uid" toAttribute="name"><![CDATA[
+                var result = value.replace(/^prefix:/, "");
+                result;
+            ]]></transformation>
+            <transformation fromAttribute="name" toAttribute="uid"><![CDATA[
+                var result = "prefix:" + value;
+                result;
+            ]]></transformation>
+        </pivotTransformation>
+
 
 Default delimiter (lsc>tasks>task>propertiesBasedSyncOptions>defaultDelimiter)
 ------------------------------------------------------------------------------
