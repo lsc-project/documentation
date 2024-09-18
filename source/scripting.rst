@@ -10,9 +10,21 @@ You can use script in several locations of ``lsc.xml``:
 
 Supported scripting language are:
 
-* Javascript (JVM interpretor) (``js:``)
+* Javascript (Nashorn interpretor) (``js:``)
 * Javascript (Rhino interpretor) (``rjs:``), also with debugger (``rdjs:``)
+* Javascript (Graal interpretor) (``gj:`` or ``js`` [JDK11+])
 * Groovy (``gr:``)
+
+.. note::
+   The following JDKs are compatible with Nashorn:
+   * ``openjdk:v1.8-11``
+   * ``azul:v11-13``
+   The following JDKs are compatible with GraalJS:
+   * ``openjdk:v11``
+   * ``azul:v13``
+   * ``corretto:v15-v20``
+   * ``graalvm-ce:v21``
+   * ``graalvm-jdk:v21``
 
 LSC objects
 ===========
