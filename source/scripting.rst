@@ -10,21 +10,50 @@ You can use script in several locations of ``lsc.xml``:
 
 Supported scripting language are:
 
-* Javascript (Nashorn interpretor) (``js:``)
-* Javascript (Rhino interpretor) (``rjs:``), also with debugger (``rdjs:``)
-* Javascript (Graal interpretor) (``gj:`` or ``js`` [JDK11+])
-* Groovy (``gr:``)
++--------------+-------------+------------------------------+----------------------+----------+
+| Java version | LSC Version |     Default JS engine        |  Prefix syntax       | Default  |
++==============+=============+==============================+======================+==========+
+| Java 8       | LSC 2.1     | Jscript evaluator            | **js:**              | **js:**  |
++--------------+-------------+------------------------------+----------------------+----------+
+| Java 11      | LSC 2.2     | GraalJS or Jscript evaluator | **js:** or **gjs:**  | **gjs:** |
++--------------+-------------+------------------------------+----------------------+----------+
+| Java 17      | LSC 2.2     | GraalJS or RhinoJS           | **gjs:** or **rjs:** | **gjs:** |
++--------------+-------------+------------------------------+----------------------+----------+
+| Java 21      | LSC 2.2     | GraalJS or RhinoJS           | **gjs:** or **rjs:** | **gjs:** |
++--------------+-------------+------------------------------+----------------------+----------+
 
-.. note::
-   The following JDKs are compatible with Nashorn:
-   * ``openjdk:v1.8-11``
-   * ``azul:v11-13``
-   The following JDKs are compatible with GraalJS:
-   * ``openjdk:v11``
-   * ``azul:v13``
-   * ``corretto:v15-v20``
-   * ``graalvm-ce:v21``
-   * ``graalvm-jdk:v21``
+Each block of script must be prefixed like in the following example (here, using **RhinoJS**):
+
+
+.. code-block:: XML
+
+ 	<string>
+		<![CDATA[rjs:
+			var carl = srcBean.getDatasetValuesById("carLicense");
+			var result = new java.util.ArrayList();
+			for (var i=0;i<carl.size(); i++) {
+				result.add(carl[i]);
+			}	
+			result.toString();
+		]]>
+	</string>
+
+If no prefix is provided, the engine will use the default value.
+
+Scripting does not hgave to start with **CDATA**. Here is a single liner example, 
+where we concatanate two strings, one of them being pulled from an attribute value:
+
+.. code-block:: XML
+
+	<dataset>
+		<name>userPassword</name>
+		<policy>FORCE</policy>
+		<forceValues>
+			<string>"secret" + srcBean.getDatasetFirstValueById("cn")</string>
+		</forceValues>
+	</dataset>
+
+This snippeyt of code will use **Jscript evaluator** engine if ran on **Java 8**, and **GraalJS** engine if ran on Java **11**, **17** or **21**.
 
 LSC objects
 ===========
@@ -113,4 +142,5 @@ You can launch Rhino debugger by using ``rdjs:`` instead of ``rjs:`` or ``js:``.
 .. tip::
 
     Launch LSC in a single thread (option ``-t 1``) to avoid multiple debug windows.
+
 
