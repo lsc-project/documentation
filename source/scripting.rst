@@ -8,21 +8,30 @@ You can use script in several locations of ``lsc.xml``:
 * <conditions>
 * <dataset>
 
-Supported scripting language are:
+The available scripting languages in Java are:
 
-+--------------+-------------+------------------------------+----------------------+----------+
-| Java version | LSC Version |     Default JS engine        |  Prefix syntax       | Default  |
-+==============+=============+==============================+======================+==========+
-| Java 8       | LSC 2.1     | Jscript evaluator            | **js:**              | **js:**  |
-+--------------+-------------+------------------------------+----------------------+----------+
-| Java 11      | LSC 2.2     | GraalJS or Jscript evaluator | **js:** or **gjs:**  | **gjs:** |
-+--------------+-------------+------------------------------+----------------------+----------+
-| Java 17      | LSC 2.2     | GraalJS or RhinoJS           | **gjs:** or **rjs:** | **gjs:** |
-+--------------+-------------+------------------------------+----------------------+----------+
-| Java 21      | LSC 2.2     | GraalJS or RhinoJS           | **gjs:** or **rjs:** | **gjs:** |
-+--------------+-------------+------------------------------+----------------------+----------+
++--------------+----------------------------------------------------+
+| Java version | Available JS engine                                |
++==============+====================================================+
+| Java 8       | Jscript evaluator (js), RhinoJS (rjs), Groovy (gr) |
++--------------+----------------------------------------------------+
+| Java 11      | Jscript evaluator (js), RhinoJS (rjs)              |
++--------------+----------------------------------------------------+
+| Java 17      | RhinoJS                                            |
++--------------+----------------------------------------------------+
+| Java 21      | RhinoJS                                            |
++--------------+----------------------------------------------------+
 
-Each block of script must be prefixed like in the following example (here, using **RhinoJS**):
+In LSC 2.1, the default JS engine was Jscript evaluator (js).
+
+Starting with **LSC 2.2**, the default JS engine is:
+
+* **GraalJS** (bundled with LSC) (gjs), or if unavailable
+* **Jscript evaluator** (js), or if unavailable
+* **RhinoJS** (rjs)
+
+
+You can force the JS engine used in a specific location by prepending the appropriate prefix, like in the following example (here, using **RhinoJS**):
 
 
 .. code-block:: XML
@@ -38,9 +47,9 @@ Each block of script must be prefixed like in the following example (here, using
 		]]>
 	</string>
 
-If no prefix is provided, the engine will use the default value.
+If no prefix is provided, the default JS engine will be used.
 
-Scripting does not hgave to start with **CDATA**. Here is a single liner example, 
+Scripting does not have to start with **CDATA**. Here is a single liner example, 
 where we concatanate two strings, one of them being pulled from an attribute value:
 
 .. code-block:: XML
@@ -53,7 +62,7 @@ where we concatanate two strings, one of them being pulled from an attribute val
 		</forceValues>
 	</dataset>
 
-This snippeyt of code will use **Jscript evaluator** engine if ran on **Java 8**, and **GraalJS** engine if ran on Java **11**, **17** or **21**.
+This snippet of code will use the default JS engine: **GraalJS**.
 
 LSC objects
 ===========
