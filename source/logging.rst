@@ -56,9 +56,9 @@ This specific layout has 4 options :
 
 - **logOperations** : which actions you want to log (create, update, delete, modrdn). You can specify multiple actions by grouping them with commas ",".
 - **separator** : which separator you want to use in the output (default a semi-colon ";")
-- **attrs** : which attributes you want to write. The attributes MUST be separated by the property **separator**. You can specifiy empty columns if you want to.
+- **attrs** : which attributes you want to write. The attributes MUST be separated by the property **separator**. You can specifiy empty columns if you want to. Note that only the first value is displayed in case of multi-valued attributes.
 - **outputHeader** : true or false. This will print the "attrs" option before outputting any data lines - thus your CSV file can have a standard header.
-- **taskNames** : a coma separated list of tasks you want to output in CSV
+- **taskNames** : a coma separated list of tasks you want to output in CSV. If the option is absent or if its value is empty, all tasks will be logged.
 
 .. note::
 
