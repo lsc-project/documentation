@@ -4,6 +4,17 @@ Upgrade from 2.1
 
 Install the new version, through packages or tarball. Here are some tips to adapt your current configuration to this new version.
 
+
+Installation and requirements
+=============================
+
+As described in :doc:`installation <installation>` and :doc:`requirements <requirements>` sections, there are somes changes:
+
+* LSC 2.2 is bundled only for RHEL-like systems 8 and 9, and debian-like systems 11 and 12
+* LSC 2.2 packages now require java 21 for running. However, it still compatible with java 11 and 17 if you build the code yourself.
+* the GPG key signing the packages has changed to ``RPM-GPG-KEY-LTB-PROJECT-SECURITY``. You must import this new key.
+
+
 XML namespace
 =============
 
@@ -44,7 +55,7 @@ This could lead to slow modifications, especially for entries with many values,
 like groups holding many members. However, sometimes it's cheaper
 to only add the missing values plus remove the extra values.
 
-LSC 2.2 take this problematic into consideration.
+LSC 2.2 takes this problematic into consideration.
 
 If (number of missing values + number of extra values) < number of expected values after modification, then LSC applies 2 operations:
 

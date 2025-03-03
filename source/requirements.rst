@@ -5,13 +5,35 @@ Requirements
 General requirements
 ====================
 
-All you need to use LSC is a Java 1.8 virtual machine (JRE).
+LSC requires a Java virtual machine (JRE).
 
-Download `latest JRE from Oracle <https://www.oracle.com/java/technologies/downloads/>`__ or install corresponding openjdk, packaged with your distribution (known to work with OpenJDK but not GCJ or Gnu Classpath Java environments).
+LSC 2.2 requires Java >= 21
 
-If you use the LSC RPM, the Oracle Java RPM is needed as a dependency.
+The recommended implementation is OpenJDK 21, but other distributions should work (Oracle for example).
 
 Production servers running regularly scheduled synchronizations will also need cron, or another task scheduler.
+
+RHEL-like
+---------
+
+On RHEL-like systems, install java with:
+
+.. code-block:: console
+
+    dnf install java-21-openjdk
+
+debian-like
+-----------
+
+For debian-like systems, install java with:
+
+.. code-block:: console
+
+    apt install openjdk-21-jre
+
+If unavailable (for debian 11 or 12 for example), you can install it with `Adoptium <https://adoptium.net/fr/temurin/releases/?os=linux&arch=x64>`__
+
+
 
 Setting up your environment
 ===========================
@@ -23,7 +45,7 @@ Check that the ``JAVA_HOME`` environment variable is set up. If not, set it up w
 
 .. code-block:: console
 
-    export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+    export JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64
 
 This may not be required if Java is directly installed on your system, and you can run java from anywhere:
 
@@ -31,14 +53,14 @@ This may not be required if Java is directly installed on your system, and you c
 
     java -version
 
-We advice to use the ``JAVA_HOME`` environment variable to be sure that LSC will work even when launched by a cron job.
+We advice to use the ``JAVA_HOME`` environment variable if you want to be sure the LSC is always launched with the precise version you set.
 
 Operating System
 ================
 
 LSC is written in Java, and as such should run on any system with a JVM.
 
-LSC has been successfully tested and used on various recent versions of GNU/Linux, MacOS X and Windows.
+LSC has been successfully tested and used on various recent versions of GNU/Linux.
 
 Shell environment
 =================

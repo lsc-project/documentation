@@ -2,6 +2,13 @@
 Installation
 ************
 
+
+Requirements
+============
+
+Make sure you followed the :doc:`requirements <requirements>`.
+
+
 Tarball
 =======
 
@@ -20,7 +27,7 @@ LSC is now installed in the subdirectory lsc-VERSION. The main files are:
 Red-hat-like distribution
 =========================
 
-LSC is packaged for RedHat/CentOS distributions. You can either install RPM manually, or use our YUM repository.
+LSC is packaged for RedHat/CentOS/Rockylinux/Almalinux distributions. You can either install RPM manually, or use our YUM repository.
 
 Using yum repository is encouraged.
 
@@ -29,19 +36,19 @@ Manual download
 
 You can download the RPM here: `download area <https://lsc-project.org/download.html>`__.
 
-The public key can be downloaded here: `http://ltb-project.org/wiki/lib/RPM-GPG-KEY-LTB-project <http://ltb-project.org/wiki/lib/RPM-GPG-KEY-LTB-project>`__
+The public key can be downloaded here: `https://ltb-project.org/documentation/_static/RPM-GPG-KEY-LTB-PROJECT-SECURITY <https://ltb-project.org/documentation/_static/RPM-GPG-KEY-LTB-PROJECT-SECURITY>`__
 
 To import this key:
 
 .. code-block:: console
 
-    rpm --import http://ltb-project.org/wiki/lib/RPM-GPG-KEY-LTB-project
+    rpm --import https://ltb-project.org/documentation/_static/RPM-GPG-KEY-LTB-PROJECT-SECURITY
 
 Just run this command to install them (with dependency management):
 
 .. code-block:: console
 
-    yum localinstall lsc*
+    dnf install ./lsc*
 
 Yum repository
 --------------
@@ -50,9 +57,8 @@ Yum repository
 
     Yum repositories are available for this release versions (``$releasever``):
 
-    * 6/6Server
-    * 7/7Server
     * 8/8Server
+    * 9/9Server
 
 Configure the yum repository :
 
@@ -67,27 +73,27 @@ Configure the yum repository :
     baseurl=http://lsc-project.org/rpm/$releasever/noarch
     enabled=1
     gpgcheck=1
-    gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-LTB-project
+    gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-LTB-PROJECT-SECURITY
 
 Then update:
 
 .. code-block:: console
 
-    yum update
+    dnf update
 
-The public key can be downloaded here: `http://ltb-project.org/wiki/lib/RPM-GPG-KEY-LTB-project <http://ltb-project.org/wiki/lib/RPM-GPG-KEY-LTB-project>`__
+The public key can be downloaded here: `https://ltb-project.org/documentation/_static/RPM-GPG-KEY-LTB-PROJECT-SECURITY <https://ltb-project.org/documentation/_static/RPM-GPG-KEY-LTB-PROJECT-SECURITY>`__
 
 To import this key:
 
 .. code-block:: console
 
-    rpm --import http://ltb-project.org/wiki/lib/RPM-GPG-KEY-LTB-project
+    rpm --import https://ltb-project.org/documentation/_static/RPM-GPG-KEY-LTB-PROJECT-SECURITY
 
 You are now ready to install:
 
 .. code-block:: console
 
-    yum install lsc
+    dnf install lsc
 
 Debian
 ======
@@ -126,21 +132,21 @@ Then update:
 
 .. code-block:: console
 
-    apt-get update
+    apt update
 
-The public key can be downloaded here: `http://ltb-project.org/wiki/lib/RPM-GPG-KEY-LTB-project <http://ltb-project.org/wiki/lib/RPM-GPG-KEY-LTB-project>`__
+The public key can be downloaded here: `https://ltb-project.org/documentation/_static/RPM-GPG-KEY-LTB-PROJECT-SECURITY <https://ltb-project.org/documentation/_static/RPM-GPG-KEY-LTB-PROJECT-SECURITY>`__
 
 To import this key:
 
 .. code-block:: console
 
-    wget https://ltb-project.org/documentation/_static/RPM-GPG-KEY-LTB-project -O /usr/share/keyrings/lsc-project.asc
+    curl -o /usr/share/keyrings/lsc-project.asc https://ltb-project.org/documentation/_static/RPM-GPG-KEY-LTB-PROJECT-SECURITY
 
 You are now ready to install:
 
 .. code-block:: console
 
-    apt-get install lsc
+    apt install lsc
 
 Files location
 ==============
@@ -150,10 +156,10 @@ With RPM or Debian packages, LSC files are installed in the following locations:
 * ``/usr/bin/lsc``: wrapper to launch LSC
 * ``/etc/lsc/``: configuration
 * ``/var/log/lsc/``: logs
-* ``/etc/init.d/lsc``: init script (for asynchronous connectors)
-* ``/etc/default/lsc``: init script configuration
+* ``/lib/systemd/system/lsc-*`` services and timers for sync and async connectors
+* ``/etc/default/lsc-*``: default configuration for sync and async services
 * ``/etc/cron.d/lsc``: cron configuration
-* ``/usr/lib/lsc/``: LSC libraries
+* ``/usr/lib/lsc/`` or ``/usr/lib64/lsc/``: LSC libraries
 * ``/var/lib/lsc/nagios/``: monitoring scripts
 * ``/usr/share/doc/lsc``: sample scripts
 
