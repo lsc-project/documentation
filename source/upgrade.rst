@@ -24,6 +24,36 @@ Update all configuration files to use the 2.2 XML namespace:
 
     <lsc xmlns="http://lsc-project.org/XSD/lsc-core-2.2.xsd" revision="0">
 
+Logging configuration
+=====================
+
+The ``logback.xml`` file has been improved.
+
+You are encouraged to adapt your specific logback.xml configurations if you have modified them.
+
+There are two evolutions:
+
+1. Remove the logback initialization blathering at startup. Add these lines in the ``<configuration>`` section:
+
+.. code-block:: XML
+
+        <!-- Stop logback initialization blathering at startup -->
+        <statusListener class="ch.qos.logback.core.status.NopStatusListener" />
+
+2. The layout sections must now be surrounded by an encoder tag. You should add this <encoder> tag. For example:
+
+.. code-block:: XML
+
+        <!-- Standard output to console -->
+        <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+                <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+                        <layout class="org.lsc.utils.output.LdifLayout">
+                                <Pattern>%date{MMM dd HH:mm:ss} - %-5level - %message%n</Pattern>
+                        </layout>
+                </encoder>
+        </appender>
+
+
 Google Apps Destination service
 ===============================
 
