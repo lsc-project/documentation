@@ -27,7 +27,6 @@ Feature overview
 
 * **Multiple source connectors**: any LDAPv3 server, any database with a JDBC connector, flat files, REST API and anything else you write a connector for
 * Support for LDAPv3 niceties and extensions: **StartTLS**, **LDAPS**, **paged results**, LDAP Sync / Persistent Search, schema retrieval
-* Graphical installation tool (use is optional)
 * Fully :doc:`configurable <overview>` through a **XML configuration file**
 * Written in Java, leveraging the ecosystem of available tools
 * Simple wrapper shell scripts are provided, to ease use and system integration
@@ -43,6 +42,7 @@ Feature overview
     * Security tools: password hashing, bi-directional encryption
 
 * Conditions to only create, update, rename or delete entries depending on current values
+* Hooks to launch scripts after each operations on an entry (for example: send a mail after creation of a new account)
 * Detailed and configurable **logging** in LDIF (fully RFC-compliant) and CSV formats
 * Monitoring plugin for Nagios
 * Possibility to extend any Java class to implement your own specific synchronization needs
