@@ -40,7 +40,7 @@ The XML namespace must be declared in ``lsc.xml``. This namespace will vary with
 .. code-block:: XML
 
     <?xml version="1.0" ?>
-    <lsc xmlns="http://lsc-project.org/XSD/lsc-core-2.1.xsd" revision="0">
+    <lsc xmlns="http://lsc-project.org/XSD/lsc-core-2.2.xsd" revision="0">
 
     </lsc>
 
