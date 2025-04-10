@@ -36,7 +36,7 @@ Build with:
 
 .. code-block:: console
 
-    mvn -Popendj clean package
+    mvn clean package
 
 Distributing
 ============

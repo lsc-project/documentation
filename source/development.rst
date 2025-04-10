@@ -37,17 +37,17 @@ Running tests
 
     Tests are run through Maven.
 
-Run all tests (opendj profile required) :
+Run all tests:
 
 .. code-block:: console
 
-    mvn -Popendj test
+    mvn test
 
 Run one test, named MyTest (note: don't put in the classpath here, write ``MyTest`` not ``org.lsc.MyTest``!):
 
 .. code-block:: console
 
-    mvn -Popendj -Dtest=MyTest test
+    mvn -Dtest=MyTest test
 
 Don't run tests:
 
@@ -61,23 +61,17 @@ Building
 
 Various builds can be done : 
 
-* the standard build requires OpenDJ to run tests.
+* the standard build:
 
 .. code-block:: console
 
-    mvn -Popendj clean package
+    mvn clean package
 
-* the light build does not require OpenDJ but you must skip tests:
-
-.. code-block:: console
-
-    mvn -Dmaven.test.skip=true clean package
-
-* a build including PostgreSQL jar (can be with or without OpenDJ)
+* a build including PostgreSQL jar:
 
 .. code-block:: console
 
-    mvn -Ppostgresql -Popendj clean package
+    mvn -Ppostgresql clean package
 
 Releasing
 =========
