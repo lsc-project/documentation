@@ -7,7 +7,7 @@ General requirements
 
 LSC requires a Java virtual machine (JRE).
 
-LSC 2.2 requires Java >= 21
+LSC 2.2 requires **Java 21**.
 
 The recommended implementation is OpenJDK 21, but other distributions should work (Oracle for example).
 
