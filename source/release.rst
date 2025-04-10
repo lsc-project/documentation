@@ -44,8 +44,6 @@ Distributing
 We currently distribute the following files:
 
   * ``lsc-core-VERSION-src.tar.gz``: source archive
-  * ``lsc-core-VERSION-dist.tar.gz``: distribution archive, containing all required dependencies
-  * ``lsc-core-VERSION-installer.jar``: automated graphical installer to install the dist archive above
+  * ``lsc-core-VERSION-dist.tar.gz`` or ``lsc-core-VERSION-dist.zip``: distribution archives, containing all required dependencies
 
 See also :doc:`packaging <packaging>`.
-
