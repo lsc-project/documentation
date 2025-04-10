@@ -65,6 +65,6 @@ LSC has been successfully tested and used on various recent versions of GNU/Linu
 Shell environment
 =================
 
-LSC runtime does not require any particular shell (it is build upon /bin/bash).
+LSC runtime does not require any particular shell (it is built upon /bin/bash).
 
 On Windows, the sample script requires Cygwin.
