@@ -9,12 +9,11 @@ The sample CSV data, a Java embedded database ((:doc:`HSQLDB <hsqldb>`)), and di
 Prerequisites
 =============
 
-* A `Java Virtual Machine (JVM) <https://lsc.readthedocs.io/en/latest/requirements.html>`_  installed on your system
-
-
+* A `Java Virtual Machine (JVM) <https://lsc.readthedocs.io/en/latest/requirements.html>`_  installed on your system with correct version (see :doc:`requirements <requirements>`).
 
 Download the latest version of LSC
 ==================================
+
 On Linux/Mac
 ------------
 1. Download the latest Tarball LSC core archive from the `download area <https://lsc-project.org/download.html>`_
@@ -38,6 +37,7 @@ On Windows (with `7-Zip <https://www.7-zip.org>`_)
 
 Sample data
 ===========
+
 For this quickstart tutorial, we’re going to synchronise a sample list of users into an LDAP directory. This list is included in the package as a csv file under ``sample/hsqldb/sample.csv``.
 
 This is what’s included in that csv file:
@@ -82,8 +82,9 @@ If all goes well, this should display a few lines of messages:
     Table csvdata created
     8 lines added to table csvdata
 
-**Note: You can change the data in the CSV file and repeat this step as many times as you want. The database will be reinitialized each time.**
+.. note::
 
+   You can change the data in the CSV file and repeat this step as many times as you want. The database will be reinitialized each time.
 
 Check the database contents
 ---------------------------
@@ -105,10 +106,11 @@ To launch the empty LDAP directory, open a separate shell and run this command:
 
 .. code-block:: console
 
-
     bin/lsc-sample --start-ldap-server
 
-**Note: You need to leave this shell running for your LDAP directory to work**
+.. note::
+
+   You need to leave this shell running for your LDAP directory to work
  
 If all goes well, this should display a few lines of messages:
 
@@ -117,29 +119,9 @@ If all goes well, this should display a few lines of messages:
     Starting LDAP server on ldap://localhost:33389/ ...
     ... LDIF sample content loaded successfully
 
-**(This may take a minute or two to launch, please be patient)**
+.. note::
 
-If you get an error
--------------------
-If you get an error that looks like the one below, it means you’re using a version of Java that’s too new:
-
-
-.. code-block:: console
-
-    Exception in thread "main" java.util.MissingResourceException: Can't
-    find bundle for base name javax.xml.bind.Messages ...
-
-
-To fix this, run the following commands one after the other:
-
-.. code-block:: console
-
-    /usr/libexec/java_home -v 1.8
-
-
-.. code-block:: console
-
-    JAVA_HOME=`/usr/libexec/java_home -v 1.8` bin/lsc-sample --start-ldap-server
+   This may take a minute or two to launch, please be patient
 
 Check the content of the directory
 ----------------------------------
@@ -165,7 +147,9 @@ Run the synchronization
 
 Now we have a data source to use and an empty LDAP directory, it’s time to fire up LSC.
 
-**Important: From now on, use a different terminal from the one the LDAP directory is running in.**
+.. warning::
+
+   From now on, use a different terminal from the one the LDAP directory is running in.
 
 A wrapper script makes it easy to launch, just run this command from the main directory:
 
@@ -287,7 +271,7 @@ Once you've had a play with this sample data, you probably want to move on to yo
 
 The main configuration file is in ``etc/lsc.xml``. It is the same format as the one from the sample, so you'll be able to use it quickly. A sample file is provided in ``etc/lsc.xml-sample``, just rename it to get started.
 
-Read through the :doc:`documentation <index>` on this web site. If you need help or have a question, `get in touch <https://lsc-project.org/contact.html>`__ by mailing lists or IRC.
+Read through the :doc:`documentation <index>` on this web site. If you need help or have a question, `get in touch <https://lsc-project.org/contact.html>`__.
 
 Last but not least, we really hope you enjoy using LSC, and it solves problems for you. We'd love to hear back from you.
 
