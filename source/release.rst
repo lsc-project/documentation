@@ -15,7 +15,7 @@ Update version
 Version needs to be updated in:
 
 * ``pom.xml``
-* ``src/install/lsc-core.spec``
+* ``src/install/lsc.spec``
 * ``src/install/debian/changelog``
 
 Tagging

@@ -36,13 +36,13 @@ Manual download
 
 You can download the RPM here: `download area <https://lsc-project.org/download.html>`__.
 
-The public key can be downloaded here: `https://ltb-project.org/documentation/_static/RPM-GPG-KEY-LTB-PROJECT-SECURITY <https://ltb-project.org/documentation/_static/RPM-GPG-KEY-LTB-PROJECT-SECURITY>`__
+The public key can be downloaded here: `https://lsc-project.org/documentation/latest/security/lsc-project-security.gpg <https://lsc-project.org/documentation/latest/security/lsc-project-security.gpg>`__
 
 To import this key:
 
 .. code-block:: console
 
-    rpm --import https://ltb-project.org/documentation/_static/RPM-GPG-KEY-LTB-PROJECT-SECURITY
+    rpm --import https://lsc-project.org/documentation/latest/security/lsc-project-security.gpg
 
 Just run this command to install them (with dependency management):
 
@@ -73,7 +73,7 @@ Configure the yum repository :
     baseurl=http://lsc-project.org/rpm/$releasever/noarch
     enabled=1
     gpgcheck=1
-    gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-LTB-PROJECT-SECURITY
+    gpgkey=file:///etc/pki/rpm-gpg/lsc-project-security.gpg
 
 Then update:
 
@@ -81,13 +81,13 @@ Then update:
 
     dnf update
 
-The public key can be downloaded here: `https://ltb-project.org/documentation/_static/RPM-GPG-KEY-LTB-PROJECT-SECURITY <https://ltb-project.org/documentation/_static/RPM-GPG-KEY-LTB-PROJECT-SECURITY>`__
+The public key can be downloaded here: `https://lsc-project.org/documentation/latest/security/lsc-project-security.gpg <https://lsc-project.org/documentation/latest/security/lsc-project-security.gpg>`__
 
 To import this key:
 
 .. code-block:: console
 
-    rpm --import https://ltb-project.org/documentation/_static/RPM-GPG-KEY-LTB-PROJECT-SECURITY
+    rpm --import https://lsc-project.org/documentation/latest/security/lsc-project-security.gpg
 
 You are now ready to install:
 
@@ -134,13 +134,13 @@ Then update:
 
     apt update
 
-The public key can be downloaded here: `https://ltb-project.org/documentation/_static/RPM-GPG-KEY-LTB-PROJECT-SECURITY <https://ltb-project.org/documentation/_static/RPM-GPG-KEY-LTB-PROJECT-SECURITY>`__
+The public key can be downloaded here: `https://lsc-project.org/documentation/latest/security/lsc-project-security.gpg <https://lsc-project.org/documentation/latest/security/lsc-project-security.gpg>`__
 
 To import this key:
 
 .. code-block:: console
 
-    curl -o /usr/share/keyrings/lsc-project.asc https://ltb-project.org/documentation/_static/RPM-GPG-KEY-LTB-PROJECT-SECURITY
+    curl -o /usr/share/keyrings/lsc-project.asc https://lsc-project.org/documentation/latest/security/lsc-project-security.gpg
 
 You are now ready to install:
 
