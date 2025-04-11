@@ -19,7 +19,7 @@ Create the rpm build structure and copy the required files:
 
     cd 
     mkdir -p rpmbuild/{SOURCES,SPECS,RPMS,SRPMS,BUILD,BUILDROOT}
-    cp target/lsc-core-X.Y-SNAPSHOT-dist.tar.gz rpmbuild/SOURCES
+    cp target/lsc-core-*-dist.tar.gz rpmbuild/SOURCES
     cp src/install/lsc.spec rpmbuild/SPECS
 
 Launch the build:
@@ -27,12 +27,6 @@ Launch the build:
 .. code-block:: console
 
     rpmbuild -ba rpmbuild/SPECS/lsc.spec
-
-The corresponding packages will be available:
-
-* ``rpmbuild/RPMS/i386/lsc-2.0.SNAPSHOT-1.fc15.i386.rpm``
-* ``rpmbuild/SRPMS/lsc-2.0.SNAPSHOT-1.fc15.src.rpm``
-
 
 LSC Debian packaging
 ====================
