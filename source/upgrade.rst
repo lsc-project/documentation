@@ -13,6 +13,7 @@ As described in :doc:`installation <installation>` and :doc:`requirements <requi
 * LSC 2.2 is bundled only for RHEL-like systems 8 and 9, and debian-like systems 11 and 12
 * LSC 2.2 packages now require **Java 21** for running. However, it is still compatible with java 11 and 17 if you build the code yourself.
 * the GPG key signing the packages has changed to ``lsc-project-securoty.gpg``. You must import this new key.
+* Nagions plugins are now in the nagios-plugins-lsc package, you must install it if you need them.
 
 XML namespace
 =============
