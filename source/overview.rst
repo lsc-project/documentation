@@ -44,6 +44,27 @@ The XML namespace must be declared in ``lsc.xml``. This namespace will vary with
 
     </lsc>
 
+Environment variables
+=====================
+
+You can use environment variables in the configuration file:
+
+.. code-block:: XML
+
+        <ldapConnection id="${LDAP_CONNECTION_ID}">
+            <name>${LDAP_CONNECTION_NAME}</name>
+            <url>ldap://${LDAP_CONNECTION_HOST}:${LDAP_CONNECTION_PORT}/dc=lsc-project,dc=org</url>
+            <username>${LDAP_CONNECTION_USERNAME}</username>
+            <password>${LDAP_CONNECTION_PASSWORD}</password>
+            <authentication>SIMPLE</authentication>
+            <referral>IGNORE</referral>
+            <derefAliases>NEVER</derefAliases>
+            <version>VERSION_3</version>
+            <pageSize>-1</pageSize>
+            <factory>com.sun.jndi.ldap.LdapCtxFactory</factory>
+            <tlsActivated>false</tlsActivated>
+        </ldapConnection>
+
 Sections
 ========
 
