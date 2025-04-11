@@ -49,12 +49,12 @@ Copy the debian build structure inside the dist directory:
 
 .. code-block:: console
 
-    cp -aR src/install/debian target/lsc-core-X.Y-SNAPSHOT-dist/lsc-X.Y-SNAPSHOT/
+    cp -aR src/install/debian target/lsc-core-*-dist/lsc-*/
 
 Launch the build:
 
 .. code-block:: console
 
-    cd target/lsc-core-X.Y-SNAPSHOT-dist/lsc-X.Y-SNAPSHOT
-    dpkg-buildpackage -us -uc
+    cd target/lsc-core-*-dist/lsc-*/
+    dpkg-buildpackage -b -kLSC
 
