@@ -140,7 +140,7 @@ To import this key:
 
 .. code-block:: console
 
-    curl -o /usr/share/keyrings/lsc-project.asc https://lsc-project.org/documentation/latest/security/lsc-project-security.gpg
+    curl https://lsc-project.org/documentation/latest/security/lsc-project-security.gpg | gpg --dearmor > /usr/share/keyrings/lsc-project.asc
 
 You are now ready to install:
 
