@@ -125,14 +125,7 @@ Configure the apt repository :
 
 .. code-block::
 
-    deb [signed-by=/usr/share/keyrings/lsc-project.asc]     https://lsc-project.org/debian lsc main
-    deb-src [signed-by=/usr/share/keyrings/lsc-project.asc] https://lsc-project.org/debian lsc main
-
-Then update:
-
-.. code-block:: console
-
-    apt update
+    deb [arch=amd64 signed-by=/usr/share/keyrings/lsc-project.gpg]     https://lsc-project.org/debian lsc main
 
 The public key can be downloaded here: `https://lsc-project.org/documentation/latest/security/lsc-project-security.gpg <https://lsc-project.org/documentation/latest/security/lsc-project-security.gpg>`__
 
@@ -140,7 +133,14 @@ To import this key:
 
 .. code-block:: console
 
-    curl https://lsc-project.org/documentation/latest/security/lsc-project-security.gpg | gpg --dearmor > /usr/share/keyrings/lsc-project.asc
+    curl https://lsc-project.org/documentation/latest/security/lsc-project-security.gpg | gpg --dearmor > /usr/share/keyrings/lsc-project.gpg
+
+Then update:
+
+.. code-block:: console
+
+    apt update
+
 
 You are now ready to install:
 
