@@ -260,7 +260,7 @@ These rules are applied through syncoptions:
                         <name>userAccountControl</name>
                         <policy>KEEP</policy>
                         <createValues>
-                           <string>AD.userAccountControlSet( "0", [AD.UAC_SET_NORMAL_ACCOUNT])</string>
+                           <string>AD.userAccountControlSet( 0, [AD.UAC_SET_NORMAL_ACCOUNT])</string>
                         </createValues>
                     </dataset>
                     <dataset>

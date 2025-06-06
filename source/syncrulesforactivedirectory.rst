@@ -28,7 +28,7 @@ For example:
 
     lsc>tasks>task>syncoptions>attribute(userAccountControl)>defaultValue = \
         AD.userAccountControlSet(
-            dstBean.getDatasetFirstValueById('userAccountControl'),
+            parseInt(dstBean.getDatasetFirstValueById('userAccountControl')),
             [AD.UAC_UNSET_ACCOUNTDISABLE])
 
 You can find a list of all the constants in the *org.interldap.lsc.utils.directory.AD* class. The constants are prefixed by ``UAC_SET`` and ``UAC_UNSET``.
@@ -38,7 +38,7 @@ You can find a list of all the constants in the *org.interldap.lsc.utils.directo
 .. code-block:: js
 
     lsc>tasks>task>syncoptions>attribute(userAccountControl)>createValue =
-        AD.userAccountControlSet( "0", [ AD.UAC_SET_PASSWD_NOTREQD,
+        AD.userAccountControlSet( 0, [ AD.UAC_SET_PASSWD_NOTREQD,
             AD.UAC_SET_NORMAL_ACCOUNT ])
 
 userAccountControlCheck
@@ -55,7 +55,7 @@ For example :
 
 .. code-block:: js
 
-    AD.userAccountControlCheck(dstBean.getDatasetFirstValueById('userAccountControl'), \
+    AD.userAccountControlCheck(parseInt(dstBean.getDatasetFirstValueById('userAccountControl')), \
         AD.UAC_ACCOUNTDISABLE)
 
 You can find a list of all the constants in the *org.interldap.lsc.utils.directory.AD class*. The constants are prefixed by ``UAC_`` (without SET or UNSET after).
@@ -67,14 +67,14 @@ You can toggle a specific bit with the method `AD.userAccountControlToggle <http
 
 This method takes 2 parameters :
 
-- The value (integer) of the userAccountControll
+- The value (integer) of the userAccountControl
 - A constant that will tell LSC which bit to toggle
 
 For example :
 
 .. code-block:: js
 
-    AD.userAccountControlToggle(dstBean.getDatasetFirstValueById('userAccountControl'), \
+    AD.userAccountControlToggle(parseInt(dstBean.getDatasetFirstValueById('userAccountControl')), \
         AD.UAC_ACCOUNTDISABLE)
 
 You can find a list of all the constants in the *org.interldap.lsc.utils.directory.AD class*. The constants are prefixed by ``UAC_`` (without SET or UNSET after).
