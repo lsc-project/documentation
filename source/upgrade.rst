@@ -16,6 +16,11 @@ As described in :doc:`installation <installation>` and :doc:`requirements <requi
 * Nagios plugins are now in the nagios-plugins-lsc package, you must install it if you need them.
 * HOME directory for lsc user has been moved from ``/etc/lsc`` to ``/var/lib/lsc``. The package should do the upgrade automatically, but if you have customized the HOME directory, you should do the change by yourself. In this case, take care to define a HOME directory writable by lsc user, else graalvm would fail to start.
 
+Scripting
+=========
+
+The supported java versions aren't handling Javascript code the same way. If you have some javascriopt code in your tasks, be sure to read the [Scripting part](https://www.lsc-project.org/documentation/latest/scripting.html) of the documentation.
+
 XML namespace
 =============
 
