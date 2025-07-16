@@ -19,7 +19,11 @@ As described in :doc:`installation <installation>` and :doc:`requirements <requi
 Scripting
 =========
 
-The supported java versions aren't handling Javascript code the same way. If you have some javascript code in your tasks, be sure to read the [Scripting part](https://www.lsc-project.org/documentation/latest/scripting.html) of the documentation.
+The supported java versions aren't handling Javascript code the same way.
+
+If you have some javascript code in your tasks, be sure to read the :doc:`scripting part <scripting>` of the documentation.
+
+Most of the time, removing ``js:`` from the datasets is enough.
 
 XML namespace
 =============
