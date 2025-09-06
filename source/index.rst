@@ -85,6 +85,7 @@ If you find any errors or you think something's missing here, please `let us kno
    synchronizeposixgroupstogroupofnames
    convertrecursivegroupstoflatgroups
    usecustomjavapackage
+   applymodificationondelete
 
 
 .. _index-development:
@@ -101,6 +102,7 @@ If you find any errors or you think something's missing here, please `let us kno
    packaging
    plugin-dev
    embedding
+   third-parties
 
 
 Contacts
