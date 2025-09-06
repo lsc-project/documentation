@@ -8,8 +8,8 @@ Presentation
 A typical use case is to desactivate an LDAP entry instead of deleting it, 
 if the source data does not contain this entry but the destination data contains it.
 
-The **cleanup** phase is used to deal with thise use case, but it ends with deleted
-entries from the source to be deleted from the destination.
+The **cleanup** phase is used to deal with this use case, but it ends with
+entries missing in the source to be deleted in the destination.
 
 Here we will modify an attribute, and move the entry to a specific branch, instead of deleting it.
 
@@ -49,7 +49,7 @@ Here we will change the following entries:
 
 as they don't exist in the source LDAP server, but are present in the destination LDAP server.
 
-Those entries contains one attribute, ``mailboxAccountStatus`` which is set to ``active`` and that is going to be changed to ``disabled``, 
+Those entries contain one attribute, ``mailboxAccountStatus`` which is set to ``active`` and that is going to be changed to ``disabled``, 
 then moved to the ``ou=disabled`` branch we can see in the previous picture. 
 
 Here is the content of the original entry:
@@ -80,7 +80,7 @@ Keep in mind that this condition will only be applied in **cleanup** phase.
 Modifying an attribute can only be done using some specific **Java** classes we don't have access to in the **JavaScript** code.
 We will need to get access to those classes.
 
-Here is the list of classes we need to getaccess to:
+Here is the list of classes we need to get access to:
 
 * ``javax.naming.directory.BasicAttribute``
 * ``javax.naming.directory.ModificationItem``
@@ -133,11 +133,11 @@ Finally, here is the place where we are going to inject our script:
 Modifying the entry
 ===================
 
-The first section of the code will modify the entry, and more specifically replace an attribute's value:
+The first section of the code will modify the entry, and more specifically replace an attribute value:
 
 .. code-block:: javascript
 
-        // Get the original entry's DN
+        // Get the original entry DN
         var dn = dstBean.getDN();
         
         //-------------------------------------------------
@@ -154,7 +154,7 @@ The first section of the code will modify the entry, and more specifically repla
             Java.type('javax.naming.directory.DirContext').REPLACE_ATTRIBUTE,
             modifiedAtribute);
         
-        // We on ly have one modification but the API requires
+        // We only have one modification but the API requires
         // we pass a LIST, let's create it, and add the modification
         // to this list
         var arrayListClass = Java.type('java.util.ArrayList');
@@ -168,13 +168,13 @@ The first section of the code will modify the entry, and more specifically repla
             Java.type('org.lsc.jndi.JndiModificationType').MODIFY_ENTRY);
         jndiModifications.setDistinguishName(dn);
 
-        // Store the modification's list into it
+        // Store the modification list into it
         jndiModifications.setModificationItems(modificationItems);
 
         // Get the LDAP service we will use to apply the modifications
         var services = ldap.getJndiServices();
                     
-        // Then apply the entry's modification
+        // Then apply the entry modification
         services.apply(jndiModifications);
 
 
