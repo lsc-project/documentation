@@ -36,8 +36,8 @@ A task contain the following parameters:
 * **syncHook**: fully qualified name of a static method to invoke after the synchronization task. This method can have a single TaskType parameter or no parameter.
 * A source service (see :doc:`services <services>`)
 * A destination service (see :doc:`services <services>`)
-* **errorIfEmptySource**: boolean, display a log error if source contains no entry (default: true)
-* **errorIfEmptyDestination**: boolean, display a log error if destination contains no entry (default: true)
+* **errorIfEmptySource**: boolean, display a log error if source contains no entry for sync task (-s) (default: true)
+* **errorIfEmptyDestination**: boolean, display a log error if destination contains no entry for clean task (-c) (default: true)
 * :doc:`Synchronization rules <syncrules>`
 * **customLibrary**: load a Java library
 * **scriptInclude**: include external script file, see :doc:`Scripting <scripting>`
