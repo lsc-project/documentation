@@ -121,11 +121,22 @@ Configure the apt repository :
 
 .. code-block:: console
 
-    vi /etc/apt/sources.list.d/lsc-project.list
+    vi /etc/apt/sources.list.d/lsc-project.sources
 
 .. code-block::
 
-    deb [arch=amd64 signed-by=/usr/share/keyrings/lsc-project.gpg]     https://lsc-project.org/debian lsc main
+    Types: deb
+    URIs: https://lsc-project.org/debian
+    Suites: lsc
+    Components: main
+    Signed-By: /usr/share/keyrings/lsc-project.gpg
+
+.. note::
+
+    You can also use the old-style source.list format. Edit ``lsc-project.list`` and add::
+
+        deb [arch=amd64 signed-by=/usr/share/keyrings/lsc-project.gpg] https://lsc-project.org/debian lsc main
+
 
 The public key can be downloaded here: `https://lsc-project.org/documentation/latest/security/lsc-project-security.gpg <https://lsc-project.org/documentation/latest/security/lsc-project-security.gpg>`__
 
