@@ -130,6 +130,7 @@ Configure the apt repository :
     Suites: lsc
     Components: main
     Signed-By: /usr/share/keyrings/lsc-project.gpg
+    Architectures: amd64
 
 .. note::
 
