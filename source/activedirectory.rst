@@ -106,6 +106,55 @@ The following script can be used to bypass this limit. You can register it in an
     }
 
 
+If you need to use this method with recursivity, then an LDAP search must be done for eech targeted entry.
+This can be done with the following script :
+
+.. code-block:: js
+
+   function getRangeValuesForDN(ldap, dn, attrName, rangeSize) {
+       var values = new java.util.ArrayList();
+       var rangeStart = 0;
+       var rangeEnd = Number(rangeStart) + Number(rangeSize) - 1;
+       var arrayCounter = 0;
+
+       values = ldap.attribute(dn, attrName);
+       if (values.size() > 0) {
+           return values;
+       } else {
+
+           while (rangeStart != "*") {
+
+               var tmpAttrName = "";
+               var tmpValues = new java.util.ArrayList();
+
+               if (rangeEnd != "*") {
+                   rangeEnd = Number(rangeStart) + Number(rangeSize) - 1;
+               }
+               tmpAttrName = "member;range=" + rangeStart.toString() + "-" + rangeEnd.toString()
+               tmpValues = ldap.attribute(dn, tmpAttrName);
+               if (rangeEnd == "*") {
+                   rangeStart = "*"
+               }
+               if (tmpValues != null ) {
+                   if (tmpValues.size() > 0) {
+                       for (var i = 0; i < tmpValues.size(); i++) {
+                           values.add(String(tmpValues.get(i)));
+                       }
+                       if (rangeEnd != "*") {
+                           rangeStart = Number(rangeEnd) + 1
+                       }
+                   } else {
+                       rangeEnd = "*"
+                   }
+               } else {
+                   rangeEnd = "*"
+               }
+           }
+       }
+
+       return values;
+   }
+
 
 Filter to find user objects
 ===========================
