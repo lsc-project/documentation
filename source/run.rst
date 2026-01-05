@@ -13,6 +13,25 @@ LSC can be started with either synchronous or asynchronous mode. In synchronous 
 
 You can launch all tasks by using the keyword ``all``, but they will not be launched in the order of their definition in the XML file. To launch ``task1`` and then ``task2``, separate them with a comma.
 
+Configuration path
+==================
+
+By default, LSC looks for its configuration in the ``etc`` directory. You can specify a different location using the ``-f`` or ``--config`` option, which accepts either:
+
+* A **configuration directory** containing the ``lsc.xml`` file and related configuration files:
+
+.. code-block:: console
+
+    lsc -f /etc/lsc -s all
+
+* A **configuration file** path directly (the file must be named ``lsc.xml`` or have the ``.xml`` extension):
+
+.. code-block:: console
+
+    lsc -f /etc/lsc/lsc.xml -s all
+
+When specifying a configuration file, LSC will use the file's parent directory as the base path for resolving relative paths in the configuration.
+
 Synchronous launch
 ==================
 
