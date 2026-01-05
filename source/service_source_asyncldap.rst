@@ -55,7 +55,6 @@ It has exactly the same parameters as a LDAP source service requires, plus the `
             <getOneFilter>
               (&amp;(objectClass=inetorgperson)(mail={mail}))
             </getOneFilter>
-            <synchronizingAllWhenStarting>true</synchronizingAllWhenStarting>
             <serverType>OpenLDAP</serverType>
           </asyncLdapSourceService>
         </task>
@@ -66,7 +65,6 @@ The generic settings are described there: :doc:`LDAP source service <service_sou
 
 The specific settings are:
 
-* **synchronizingAllWhenStarting**: set to false to bypass a full synchronization on start (default: true)
 * **serverType**: one the following values:
 
     * ``OpenLDAP``
