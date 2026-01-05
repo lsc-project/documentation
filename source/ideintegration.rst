@@ -53,8 +53,9 @@ Double-click on Java Application and set these options:
 
 Then in the Arguments tab:
 
-* Program arguments: ``-s all -f path-to-your-etc-directory-where-you-lsc.xml-is``
-* For example: ``-s all -f /home/username/workspace_lsc/lsc/etc``
+* Program arguments: ``-s all -f path-to-your-configuration-directory-or-file``
+* For example with a directory: ``-s all -f /home/username/workspace_lsc/lsc/etc``
+* Or with a configuration file: ``-s all -f /home/username/workspace_lsc/lsc/etc/lsc.xml``
 
 In JRE tab:
 
