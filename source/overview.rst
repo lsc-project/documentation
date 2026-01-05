@@ -7,7 +7,7 @@ The main configuration file
 
 Configuration parameters described here must be placed in the ``lsc.xml`` file, located in either:
 
-* The directory specified by the ``-f`` command line parameter to LSC, generally the etc sub directory
+* The directory specified by the ``-f`` or ``--config`` command line parameter to LSC (which can point to a configuration directory or directly to the ``lsc.xml`` file)
 * The etc sub-directory if you launch LSC with the java command and the ``org.lsc.Launcher`` class
 
 General rules about this file:
