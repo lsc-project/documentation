@@ -72,6 +72,10 @@ Asynchronous launch
 
 When multiple asynchronous tasks are started, they are started as separate thread inside the same daemon.
 
+.. note::
+
+    Asynchronous mode cannot be combined with synchronous or clean modes.
+
 Using systemd service
 =====================
 

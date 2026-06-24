@@ -1,4 +1,16 @@
 ****************
+Upgrade from 2.2
+****************
+
+When installing the 2.3 (or newer) version of LSC, you should take care about these notes:
+
+* Mixing sync and async task in the same run is not supported any more.
+
+In LSC 2.2, there was a regression causing an abnormal sync and clean task run when using flag ``-a all``. See https://github.com/lsc-project/lsc/issues/465 issue for more details.
+The regression has been fixed in 2.3, but the usage of mixed tasks is not possible any more. You must now run either sync tasks or async tasks.
+
+
+****************
 Upgrade from 2.1
 ****************
 
