@@ -202,6 +202,7 @@ Here is an example of modification in json, passed to stdin:
       "operation" : "REPLACE_VALUES"
     } ]
 
+.. _datasets_section:
 
 Attributes (lsc>tasks>task>propertiesBasedSyncOptions>dataset)
 --------------------------------------------------------------
@@ -219,6 +220,10 @@ This is the node describing how to handle each attribute:
       </createValues>
     </dataset>
 
+* ``policy``: the rule for determining if and how to write the attribute. You can use values among KEEP, FORCE, and MERGE. See section below for the meaning of these values
+* ``createValues``: the list of values to be written for an entry creation. See section below for more details.
+* ``defaultValues``: the list of values to be written if the attribute is absent from the destination. See section below for more details.
+* ``forceValues``: the list of values to be written in any case, even if the attribute already exists in destination. See section below for more details.
 
 Functionality matrix
 ====================

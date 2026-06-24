@@ -47,7 +47,7 @@ The LDAP service should be configured by using the following settings:
 * **connection**: this node should not contain any element, just a ``reference`` attribute which is used to look for the corresponding connection with this name (as sub-element of the connection element)
 * **baseDn**: mandatory, this value provides the root distinguished name to use to look for entries
 * **pivotAttributes**: mandatory, this list of string values contains all the pivot attributes that are fetched when looking for all entries to synchronize and are used to get the right filter to read every single and complete entry to synchronize
-* **fetchedAttributes**: mandatory, this list of string values contains all the attributes that will be read from the source directory
+* **fetchedAttributes**: mandatory, this list of string values contains all the attributes that will be read from the source directory. You can use the special attribute ``*``: in that case, all attributes from source entry (except operational attributes) will be retrieved and considered to be written in destination.
 * **getAllFilter**: mandatory, this filter is used to look for all entries that have to be synchronized
 * **getOneFilter**: mandatory, this filter is used to look for a particular entry - the value will be computed to replace the corresponding **source** pivot attributes with their value at runtime
 
