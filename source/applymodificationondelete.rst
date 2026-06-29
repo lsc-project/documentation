@@ -133,7 +133,9 @@ Finally, here is the place where we are going to inject our script:
 Modifying the entry
 ===================
 
-The first section of the code will modify the entry, and more specifically replace an attribute value:
+The first section of the code will modify the entry, and more specifically replace an attribute value.
+
+NOTE: When running in dry-run mode, you don't want the modification to be applied. You then need to check that this mode is not activated by controling the _nomodify_ flag
 
 .. code-block:: javascript
 
@@ -174,9 +176,14 @@ The first section of the code will modify the entry, and more specifically repla
         // Get the LDAP service we will use to apply the modifications
         var services = ldap.getJndiServices();
                     
-        // Then apply the entry modification
-        services.apply(jndiModifications);
-
+        // Then apply the entry modification when not in dry run mode
+        if (!nomodify) { 
+            // Drymode disabled
+            services.apply(jndiModifications);
+        } else {
+            // Drymode enabled
+            java.lang.System.out.println("Applying these modifications: " + jndiModifications);
+        }
 
 Moving the entry
 ================
@@ -200,9 +207,14 @@ Here is the code that moves the entry in a second step:
             jndiModifications.setDistinguishName(dn)
             jndiModifications.setNewDistinguishName(newDn);
             
-            // And apply the modification
-            services.apply(jndiModifications);
-            
+            // And apply the modification, again when not in dry run mode:
+            if (!nomodrdn) {  // Check if we can move an entry
+                // Dry run disabled
+                services.apply(jndiModifications);
+            } else {
+                // Drymode enabled
+                java.lang.System.out.println("Moving this entry: " + dn + " to " + newDn);
+            }
             // Last,  not least, return 'false' so that the entry is not deleted
             false
 
