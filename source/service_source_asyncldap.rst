@@ -49,12 +49,12 @@ It has exactly the same parameters as a LDAP source service requires, plus the `
               <string>uid</string>
               <string>mail</string>
             </fetchedAttributes>
-            <getAllFilter>
-              (objectClass=inetorgperson)
-            </getAllFilter>
-            <getOneFilter>
-              (&amp;(objectClass=inetorgperson)(mail={mail}))
-            </getOneFilter>
+            <allEntriesFilter>
+              "(objectClass=inetorgperson)"
+            </allEntriesFilter>
+            <oneEntryFilter>
+              "(&amp;(objectClass=inetorgperson)(mail=" + pivotAttributes["mail"] + "))"
+            </oneEntryFilter>
             <serverType>OpenLDAP</serverType>
           </asyncLdapSourceService>
         </task>

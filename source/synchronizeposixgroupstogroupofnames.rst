@@ -59,9 +59,9 @@ We define here a source service that will read POSIX groups, and a destination s
             <string>cn</string>
             <string>memberUid</string>
         </fetchedAttributes>
-        <getAllFilter><![CDATA[(objectClass=posixGroup)]]></getAllFilter>
-        <getOneFilter><![CDATA[(&(objectClass=posixGroup)(cn={cn}))]]></getOneFilter>
-        <cleanFilter><![CDATA[(&(objectClass=posixGroup)(cn={cn}))]]></cleanFilter>
+        <allEntriesFilter><![CDATA["(objectClass=posixGroup)"]]></allEntriesFilter>
+        <oneEntryFilter><![CDATA["(&(objectClass=posixGroup)(cn=" + pivotAttributes["cn"] + "))"]]></oneEntryFilter>
+        <cleanEntryFilter><![CDATA["(&(objectClass=posixGroup)(cn=" + pivotAttributes["cn"] + "))"]]></cleanEntryFilter>
     </ldapSourceService>
     <ldapDestinationService>
         <name>group-dst-service</name>
@@ -75,8 +75,8 @@ We define here a source service that will read POSIX groups, and a destination s
             <string>member</string>
             <string>objectClass</string>
         </fetchedAttributes>
-        <getAllFilter><![CDATA[(objectClass=groupeOfNames)]]></getAllFilter>
-        <getOneFilter><![CDATA[(&(objectClass=groupOfNames)(cn={cn}))]]></getOneFilter>
+        <allEntriesFilter><![CDATA["(objectClass=groupeOfNames)"]]></allEntriesFilter>
+        <oneEntryFilter><![CDATA["(&(objectClass=groupOfNames)(cn=" + pivotAttributes["cn"] + "))"]]></oneEntryFilter>
     </ldapDestinationService>
 
 Properties

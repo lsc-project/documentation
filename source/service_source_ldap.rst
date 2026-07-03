@@ -27,15 +27,15 @@ Let's find below a sample and the parameters description :
               <string>uid</string>
               <string>mail</string>
             </fetchedAttributes>
-            <getAllFilter>
-              (objectClass=inetorgperson)
-            </getAllFilter>
-            <getOneFilter>
-              (&amp;(objectClass=inetorgperson)(mail={mail}))
-            </getOneFilter>
-            <cleanFilter>
-              (&amp;(objectClass=inetorgperson)(mail={mail}))
-            </cleanFilter>
+            <allEntriesFilter>
+              "(objectClass=inetorgperson)"
+            </allEntriesFilter>
+            <oneEntryFilter>
+              "(&amp;(objectClass=inetorgperson)(mail=" + pivotAttributes["mail"] + "))"
+            </oneEntryFilter>
+            <cleanEntryFilter>
+              "(&amp;(objectClass=inetorgperson)(mail=" + pivotAttributes["mail"] + "))"
+            </cleanEntryFilter>
           </ldapSourceService>
         </task>
       </tasks>
@@ -48,18 +48,23 @@ The LDAP service should be configured by using the following settings:
 * **baseDn**: mandatory, this value provides the root distinguished name to use to look for entries
 * **pivotAttributes**: mandatory, this list of string values contains all the pivot attributes that are fetched when looking for all entries to synchronize and are used to get the right filter to read every single and complete entry to synchronize
 * **fetchedAttributes**: mandatory, this list of string values contains all the attributes that will be read from the source directory. You can use the special attribute ``*``: in that case, all attributes from source entry (except operational attributes) will be retrieved and considered to be written in destination.
-* **getAllFilter**: mandatory, this filter is used to look for all entries that have to be synchronized
-* **getOneFilter**: mandatory, this filter is used to look for a particular entry - the value will be computed to replace the corresponding **source** pivot attributes with their value at runtime
+* **allEntriesFilter**: mandatory, this filter is used to look for all entries that have to be synchronized. The filter is considered as a script that will be evaluated as described in :doc:`scripting section <scripting>`.
+* **oneEntryFilter**: mandatory, this filter is used to look for a particular entry. The filter is considered as a script that will be evaluated as described in :doc:`scripting section <scripting>`. You should use the pivotAttribute key->value array for selecting the current source entry. Important: the key must be written in lowercase (for example: ``pivotAttributes["samaccountname"]`` and not ``pivotAttributes["sAMAccountName"]``)
+* **cleanEntryFilter**: optional, this filter is used to look for a particular entry for the clean phase. The value will be computed to replace the corresponding **destination** pivot attributes with their value at runtime. The filter is considered as a script that will be evaluated as described in :doc:`scripting section <scripting>`. You should use the pivotAttribute key->value array for matching the **destination** pivot attribute with the corresponding source entry. Important: the key must be written in lowercase (for example: ``pivotAttributes["samaccountname"]`` and not ``pivotAttributes["sAMAccountName"]``)
 
 .. tip::
 
-    The pivot attributes must be written in lowercase, and surrounded by ``{`` and ``}``
+    DEPRECATED:
 
-* **cleanFilter**: optional, this filter is used to look for a particular entry for the clean phase - the value will be computed to replace the corresponding **destination** pivot attributes with their value at runtime
+    Instead of ``allEntriesFilter``, ``oneEntryFilter``, and ``cleanEntryFilter``, you could use the corresponding deprecated parameters: ``getAllFilter``, ``getOneFilter``, and ``cleanFilter``. Take care that these parameters will be removed at some point.
 
-.. tip::
+    The deprecated parameters are evaluated as string templates:
 
-    The pivot attributes must be written in lowercase, and surrounded by ``{`` and ``}``
+    1. you must not surround the filters by double-quotes (") or single quotes (')
+    2. the pivotAttributes array is not available, instead you should use a placeholder: ``{pivotAttributeName}``, for example ``{mail}``
+    3. the pivot placeholders must be written in lowercase.
+
+    Example: ``<getOneFilter>(&amp;(objectClass=inetorgperson)(mail={mail}))</getOneFilter>``
 
 * **filterAsync**: optional, filter that will be used to simulate an asynchronous task (default: ``modifytimestamp>={0}``)
 * **dateFormat**: optional, date format for the above filter (default: ``yyyyMMddHHmmss'Z'``)

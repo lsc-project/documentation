@@ -52,9 +52,9 @@ We define here a source service that will read OpenLDAP groups, and a destinatio
             <string>description</string>
             <string>uniqueMember</string>
         </fetchedAttributes>
-        <getAllFilter><![CDATA[(objectClass=groupOfUniqueNames)]]></getAllFilter>
-        <getOneFilter><![CDATA[(&(objectClass=groupOfUniqueNames)(cn={cn}))]]></getOneFilter>
-        <cleanFilter><![CDATA[(&(objectClass=groupOfUniqueNames)(cn={cn}))]]></cleanFilter>
+        <allEntriesFilter><![CDATA["(objectClass=groupOfUniqueNames)"]]></allEntriesFilter>
+        <oneEntryFilter><![CDATA["(&(objectClass=groupOfUniqueNames)(cn=" + pivotAttributes["cn"] + "))"]]></oneEntryFilter>
+        <cleanEntryFilter><![CDATA["(&(objectClass=groupOfUniqueNames)(cn=" + pivotAttributes["cn"] + "))"]]></cleanEntryFilter>
         <serverType>OpenLDAP</serverType>
     </asyncLdapSourceService>
     <ldapDestinationService>
@@ -70,8 +70,8 @@ We define here a source service that will read OpenLDAP groups, and a destinatio
             <string>member</string>
             <string>objectClass</string>
         </fetchedAttributes>
-        <getAllFilter><![CDATA[(objectClass=group)]]></getAllFilter>
-        <getOneFilter><![CDATA[(&(objectClass=group)(cn={cn}))]]></getOneFilter>
+        <allEntriesFilter><![CDATA["(objectClass=group)"]]></allEntriesFilter>
+        <oneEntryFilter><![CDATA["(&(objectClass=group)(cn=" + pivotAttributes["cn"] + "))"]]></oneEntryFilter>
     </ldapDestinationService>
 
 Properties

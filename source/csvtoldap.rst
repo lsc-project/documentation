@@ -214,8 +214,8 @@ Then configure LDAP destination service:
             <string>objectClass</string>
             <string>mail</string>
         </fetchedAttributes>
-        <getAllFilter>(objectClass=inetOrgPerson)</getAllFilter>
-        <getOneFilter>(&amp;(objectClass=inetOrgPerson)(uid={uid}))</getOneFilter>
+        <allEntriesFilter>"(objectClass=inetOrgPerson)"</allEntriesFilter>
+        <oneEntryFilter>"(&amp;(objectClass=inetOrgPerson)(uid=" + pivotAttributes["uid"] + "))"</oneEntryFilter>
     </ldapDestinationService>
 
 Set synchronization rules

@@ -4,10 +4,48 @@ Upgrade from 2.2
 
 When installing the 2.3 (or newer) version of LSC, you should take care about these notes:
 
-* Mixing sync and async task in the same run is not supported any more.
+Mixing sync and async task in the same run is not supported any more
+====================================================================
 
 In LSC 2.2, there was a regression causing an abnormal sync and clean task run when using flag ``-a all``. See https://github.com/lsc-project/lsc/issues/465 issue for more details.
 The regression has been fixed in 2.3, but the usage of mixed tasks is not possible any more. You must now run either sync tasks or async tasks.
+
+parameters getAllFilter, getOneFilter, and cleanFilter have been DEPRECATED
+===========================================================================
+
+They will still work for some time, but you are encouraged to migrate your configuration.
+
+* ``getAllFilter`` has been replaced by ``allEntriesFilter``
+* ``getOneFilter`` has been replaced by ``oneEntryFilter``
+* ``cleanFilter`` has been replaced by ``cleanEntryFilter``
+
+The new filter parameters are considered as scripts that will be evaluated as described in :doc:`scripting section <scripting>`.
+
+The migration consists in:
+
+1. renaming the parameters,
+
+2. surrounding the filters by double-quotes (") to evaluate them as strings, and
+
+3. replacing the placeholders ``{pivotAttributeName}`` by the pivotAttributes array: ``pivotAttributes["pivotAttributeName"]``.
+
+For example, transform:
+
+.. code-block:: XML
+
+    <getOneFilter>
+        (&amp;(objectClass=inetorgperson)(mail={mail}))
+    </getOneFilter>
+
+into:
+
+.. code-block:: XML
+
+    <oneEntryFilter>
+        "(&amp;(objectClass=inetorgperson)(mail=" + pivotAttributes["mail"] + "))"
+    </oneEntryFilter>
+
+For more information, give a look to the :doc:`ldap source <service_source_ldap>` and  :doc:`ldap destination <service_destination_ldap>` services documentation.
 
 
 ****************

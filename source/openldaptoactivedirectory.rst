@@ -132,9 +132,9 @@ In this task, we define the source service (OpenLDAP) and the destination servic
                     <string>uid</string>
                     <string>userpassword</string>
                 </fetchedAttributes>
-                <getAllFilter><![CDATA[(objectClass=inetOrgPerson)]]></getAllFilter>
-                <getOneFilter><![CDATA[(&(objectClass=inetOrgPerson)(uid={uid}))]]></getOneFilter>
-                <cleanFilter><![CDATA[(&(objectClass=inetOrgPerson)(uid={sAMAccountName}))]]></cleanFilter>
+                <allEntriesFilter><![CDATA["(objectClass=inetOrgPerson)"]]></allEntriesFilter>
+                <oneEntryFilter><![CDATA["(&(objectClass=inetOrgPerson)(uid=" + pivotAttributes["uid"] + "))"]]></oneEntryFilter>
+                <cleanEntryFilter><![CDATA["(&(objectClass=inetOrgPerson)(uid=" + pivotAttributes["samaccountname"] + "))"]]></cleanEntryFilter>
             </ldapSourceService>
             <ldapDestinationService>
                 <name>ad-dst-service</name>
@@ -156,8 +156,8 @@ In this task, we define the source service (OpenLDAP) and the destination servic
                     <string>userAccountControl</string>
                     <string>userPrincipalName</string>
                 </fetchedAttributes>
-                <getAllFilter><![CDATA[(objectClass=user)]]></getAllFilter>
-                <getOneFilter><![CDATA[(&(objectClass=user)(sAMAccountName={uid}))]]></getOneFilter>
+                <allEntriesFilter><![CDATA["(objectClass=user)"]]></allEntriesFilter>
+                <oneEntryFilter><![CDATA["(&(objectClass=user)(sAMAccountName=" + pivotAttributes["uid"] + "))"]]></oneEntryFilter>
             </ldapDestinationService>
 
 We will also define how the target DN is built. Let's choose that the target DN is composed from the source's attribute ``cn`` and the destination branch ``cn=Users``.

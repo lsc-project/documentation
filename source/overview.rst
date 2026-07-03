@@ -18,19 +18,19 @@ General rules about this file:
 
 .. code-block:: XML
 
-    <getOneFilter>
-        (&amp;(objectClass=inetOrgPerson)(uid={uid}))
-    </getOneFilter>
+    <oneEntryFilter>
+        "(&amp;(objectClass=inetOrgPerson)(uid=" + pivotAttributes["uid"] + "))"
+    </oneEntryFilter>
 
 or:
 
 .. code-block:: XML
 
-    <getOneFilter>
+    <oneEntryFilter>
         <![CDATA[
-            (&(objectClass=inetOrgPerson)(uid={uid}))
+            "(&(objectClass=inetOrgPerson)(uid=" + pivotAttributes["uid"] + "))"
         ]]>
-    </getOneFilter>
+    </oneEntryFilter>
 
 XML namespace
 =============

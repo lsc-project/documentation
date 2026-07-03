@@ -27,12 +27,12 @@ Let's find below a sample and the parameters description :
               <string>uid</string>
               <string>mail</string>
             </fetchedAttributes>
-            <getAllFilter>
-              (objectClass=inetorgperson)
-            </getAllFilter>
-            <getOneFilter>
-              (&amp;(objectClass=inetorgperson)(mail={mail}))
-            </getOneFilter>
+            <allEntriesFilter>
+              "(objectClass=inetorgperson)"
+            </allEntriesFilter>
+            <oneEntryFilter>
+              "(&amp;(objectClass=inetorgperson)(mail=" + pivotAttributes["mail"] + "))"
+            </oneEntryFilter>
           </ldapDestinationService>
         </task>
       </tasks>
@@ -45,10 +45,20 @@ The LDAP service should be configured by using the following settings:
 * **baseDn**: mandatory, this value provides the root distinguished name to use for searching entries
 * **pivotAttributes**: mandatory, this list of string values contains all the pivot attributes that are fetched when checking for the entry existence by looking back to the source service
 * **fetchedAttributes**: mandatory, this list of string values contains all the attributes that will be synchronized according to the source object and the synchronization options. You can use the special attribute ``*``: in that case, all attributes from source entry (except operational attributes) and all attributes configured as createValues, defaultValues, and forceValues in :ref:`datasets <datasets_section>` are considered to be written in destination.
-* **getAllFilter**: mandatory, this filter is used to look for all entries whom existence should be checked through the source service
-* **getOneFilter**: mandatory, this filter is used to look for a particular entry - the value will be computed to replace the corresponding **source**  pivot attributes with the value from the original object at runtime
+* **allEntriesFilter**: mandatory, this filter is used to look for all entries that have to be synchronized. The filter is considered as a script that will be evaluated as described in :doc:`scripting section <scripting>`.
+* **oneEntryFilter**: mandatory, this filter is used to look for a particular entry. The value will be computed to replace the corresponding **source** pivot attributes with their value at runtime. The filter is considered as a script that will be evaluated as described in :doc:`scripting section <scripting>`. You should use the pivotAttribute key->value array for matching the **source** pivot attribute with the corresponding destination entry. Important: the key must be written in lowercase (for example: ``pivotAttributes["samaccountname"]`` and not ``pivotAttributes["sAMAccountName"]``)
 
 .. tip::
 
-    The pivot attributes must be written in lowercase, and surrounded by ``{`` and ``}``
+    DEPRECATED:
+
+    Instead of ``allEntriesFilter`` and ``oneEntryFilter`` you could use the corresponding deprecated parameters: ``getAllFilter`` and ``getOneFilter``. Take care that these parameters will be removed at some point.
+
+    The deprecated parameters are evaluated as string templates:
+
+    1. you must not surround the filters by double-quotes (") or single quotes (')
+    2. the pivotAttributes array is not available, instead you should use a placeholder: ``{pivotAttributeName}``, for example ``{mail}``
+    3. the pivot placeholders must be written in lowercase.
+
+    Example: ``<getOneFilter>(&amp;(objectClass=inetorgperson)(mail={mail}))</getOneFilter>``
 

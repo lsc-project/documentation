@@ -29,9 +29,9 @@ Sync phase
    :align: center
 
 
-- All entries are read in source. This is done with ``getAllFilter`` for LDAP, ``requestNameForList`` for Database or ``listScript`` for executable plugin. The values of attributes defined in ``pivotAttributes`` (in the source) are read.
-- For each entry found at step 1, the pivot values are used to get the entry in source and values of attributes defined in ``fetchedAttributes`` are read (in the source). This is done with ``getOneFilter`` for LDAP, ``requestNameForObject`` for Database or ``getScript`` for executable plugin (in the source).
-- For each entry found at step 1, the pivot values (from the source) are used to get the entry in destination and values of attributes defined in ``fetchedAttributes`` are read (in the destination).  This is done with ``getOneFilter`` for LDAP, ``requestNameForObject`` for Database or ``getScript`` for executable plugin (in the destination).
+- All entries are read in source. This is done with ``allEntriesFilter`` for LDAP, ``requestNameForList`` for Database or ``listScript`` for executable plugin. The values of attributes defined in ``pivotAttributes`` (in the source) are read.
+- For each entry found at step 1, the pivot values are used to get the entry in source and values of attributes defined in ``fetchedAttributes`` are read (in the source). This is done with ``oneEntryFilter`` for LDAP, ``requestNameForObject`` for Database or ``getScript`` for executable plugin (in the source).
+- For each entry found at step 1, the pivot values (from the source) are used to get the entry in destination and values of attributes defined in ``fetchedAttributes`` are read (in the destination).  This is done with ``oneEntryFilter`` for LDAP, ``requestNameForObject`` for Database or ``getScript`` for executable plugin (in the destination).
 - Attributes and values found at step 2 are placed in ``srcBean``, and those found at step 3 are in ``dstBean``. The synchronizations rules are run and LSC calculate modifications.
 - The modification are applied on the destination, if associated ``conditions`` are true.
 
@@ -43,8 +43,8 @@ Clean phase
    :align: center
 
 
-- All entries are read in destination. This is done with ``getAllFilter`` for LDAP, ``requestNameForList`` for Database or ``listScript`` for executable plugin. The values of attributes defined in ``pivotAttributes`` (in the destination) are read.
-- For each entry found at step 1, the pivot values (from the destination) are used to get the entry in source.  This is done with ``cleanFilter`` for LDAP, ``requestNameForClean`` for Database or ``getScript`` for executable plugin.
+- All entries are read in destination. This is done with ``allEntriesFilter`` for LDAP, ``requestNameForList`` for Database or ``listScript`` for executable plugin. The values of attributes defined in ``pivotAttributes`` (in the destination) are read.
+- For each entry found at step 1, the pivot values (from the destination) are used to get the entry in source.  This is done with ``cleanEntryFilter`` for LDAP, ``requestNameForClean`` for Database or ``getScript`` for executable plugin.
 - If no corresponding entry is found in source, LSC tag the destination entry for deletion.
 - The delete are applied on the destination, if ``delete`` condition is true.
 
