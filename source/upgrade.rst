@@ -22,12 +22,6 @@ into:
     <lsc xmlns="http://lsc-project.org/XSD/lsc-core-2.3.xsd" revision="0">
 
 
-Mixing sync and async task in the same run is not supported anymore
-===================================================================
-
-In LSC 2.2, there was a regression causing an abnormal sync and clean task run when using flag ``-a all``. See https://github.com/lsc-project/lsc/issues/465 issue for more details.
-The regression has been fixed in 2.3, but the usage of mixed tasks is not possible anymore. You must now run either sync or async tasks.
-
 parameters getAllFilter, getOneFilter, and cleanFilter have been DEPRECATED
 ===========================================================================
 
@@ -64,6 +58,12 @@ into:
     </oneEntryFilter>
 
 For more information, give a look to the :doc:`ldap source <service_source_ldap>` and  :doc:`ldap destination <service_destination_ldap>` services documentation.
+
+Mixing sync and async task in the same run is not supported anymore
+===================================================================
+
+In LSC 2.2, there was a regression causing an abnormal sync and clean task run when using flag ``-a all``. See https://github.com/lsc-project/lsc/issues/465 issue for more details.
+The regression has been fixed in 2.3, but the usage of mixed tasks is not possible anymore. You must now run either sync or async tasks.
 
 
 ****************
