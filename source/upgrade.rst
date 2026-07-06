@@ -39,7 +39,7 @@ The migration consists in:
 
 2. surrounding the filters by double-quotes (") to evaluate them as strings, and
 
-3. replacing the placeholders ``{pivotAttributeName}`` by the pivotAttributes array: ``pivotAttributes["pivotAttributeName"]``.
+3. replacing the placeholders ``{pivotAttributeName}`` by the pivotAttributes array: ``pivotAttributes["pivotattributename"]``, with pivotattributename written in lowercase.
 
 For example, transform:
 
