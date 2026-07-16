@@ -66,6 +66,7 @@ The LDAP service should be configured by using the following settings:
 
     Example: ``<getOneFilter>(&amp;(objectClass=inetorgperson)(mail={mail}))</getOneFilter>``
 
+* **bypassOneEntry**: optional, skips the oneEntry step for source referential when ``true``. If enabled, the source entry attributes are fetched directly during allEntries step. (default: ``false``)
 * **filterAsync**: optional, filter that will be used to simulate an asynchronous task (default: ``modifytimestamp>={0}``)
 * **dateFormat**: optional, date format for the above filter (default: ``yyyyMMddHHmmss'Z'``)
 * **interval**: optional, interval in seconds to fetch data based on the above filter (default: 5)
