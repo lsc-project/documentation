@@ -59,6 +59,7 @@ Yum repository
 
     * 8/8Server
     * 9/9Server
+    * 10/10Server
 
 Configure the yum repository :
 
