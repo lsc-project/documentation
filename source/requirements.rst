@@ -53,7 +53,7 @@ Check the HOME environment variable is well-defined:
 
 and also check that this directory has write permissions for the user running LSC.
 
-Else, you would have these warnings in the logs:
+Otherwise, you would have these warnings in the logs:
 
 .. code-block:: console
 
