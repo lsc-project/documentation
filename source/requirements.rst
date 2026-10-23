@@ -7,7 +7,7 @@ General requirements
 
 LSC requires a Java virtual machine (JRE).
 
-LSC 2.2 requires **Java 21**.
+LSC 2.3 requires **Java 21**.
 
 The recommended implementation is OpenJDK 21, but other distributions should work (Oracle for example).
 
@@ -37,6 +37,28 @@ If unavailable (for debian 11 or 12 for example), you can install it with `Adopt
 
 Setting up your environment
 ===========================
+
+
+Environment / permissions
+-------------------------
+
+LSC uses GraalJS for js evaluation in datasets. For this to work correctly, you need to have a writable home directory.
+
+Check the HOME environment variable is well-defined:
+
+.. code-block:: console
+
+    su - lsc # or whatever user running LSC
+    echo "${HOME}"
+
+and also check that this directory has write permissions for the user running LSC.
+
+Else, you would have these warnings in the logs:
+
+.. code-block:: console
+
+    ScriptEngineManager providers.next(): javax.script.ScriptEngineFactory: Provider com.oracle.truffle.js.scriptengine.GraalJSEngineFactory could not be instantiated
+
 
 Java
 ----
