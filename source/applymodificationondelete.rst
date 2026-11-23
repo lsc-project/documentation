@@ -135,7 +135,7 @@ Modifying the entry
 
 The first section of the code will modify the entry, and more specifically replace an attribute value.
 
-NOTE: When running in dry-run mode, you don't want the modification to be applied. You then need to check that this mode is not activated by controling the *nomodify* flag
+NOTE: When running in dry-run mode, you don't want the modification to be applied. You then need to check that this mode is not activated by controling the *noupdate* flag
 
 .. code-block:: javascript
 
@@ -177,7 +177,7 @@ NOTE: When running in dry-run mode, you don't want the modification to be applie
         var services = ldap.getJndiServices();
                     
         // Then apply the entry modification when not in dry run mode
-        if (!nomodify) { 
+        if (!noupdate) { 
             // Drymode disabled
             services.apply(jndiModifications);
         } else {
